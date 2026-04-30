@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Game PC Gratis & Berlisensi · Review Game Terbaik 2024</title>
-    <meta name="description" content="Download game PC terbaru dengan harga terbaik dari official store. Review game lengkap, perbandingan harga, dan link beli resmi.">
-    <meta name="keywords" content="download game, beli game murah, steam key, gog games, humble bundle">
+    <title>{{TITLE}} · Download Game PC Official Store | Harga Terbaik</title>
+    <meta name="description" content="Download {{TITLE}} dari official store resmi. Bandingkan harga di GOG, Humble Bundle, Green Man Gaming, dan Steam. Dapatkan diskon hingga 80%!">
+    <meta name="keywords" content="{{SLUG}}, download {{TITLE}}, beli {{TITLE}} murah, {{TITLE}} steam key">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,243 +24,251 @@
             min-height: 100vh;
         }
         
-        /* Navbar */
-        .navbar {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
-        }
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
+        /* Header */
+        .game-header {
+            position: relative;
+            min-height: 60vh;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: #b5d0ff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: #3b82f6; }
-        
-        /* Hero Section */
-        .hero {
+            justify-content: center;
             text-align: center;
             padding: 4rem 2rem;
-            background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15), transparent);
+            overflow: hidden;
         }
-        .hero h1 {
-            font-size: 3rem;
+        .game-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        .game-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        .game-title {
+            font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 1rem;
             background: linear-gradient(135deg, #fff, #a5d8ff, #93c5fd);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #b5d0ff;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* Game Grid */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .section-title {
-            font-size: 1.8rem;
-            margin: 2rem 0 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .section-title i {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .game-card {
-            background: rgba(22, 32, 55, 0.8);
-            backdrop-filter: blur(8px);
-            border-radius: 1.5rem;
-            overflow: hidden;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            transition: all 0.3s ease;
-        }
-        .game-card:hover {
-            transform: translateY(-8px);
-            border-color: #3b82f6;
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-        
-        .game-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            background: linear-gradient(135deg, #1a2440, #0f1425);
-        }
-        
-        .game-info {
-            padding: 1.2rem;
-        }
-        .game-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-            color: white;
+            margin-bottom: 0.5rem;
         }
         .game-meta {
             display: flex;
-            gap: 1rem;
-            font-size: 0.7rem;
-            color: #8ba3d9;
-            margin-bottom: 0.8rem;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
             flex-wrap: wrap;
         }
         .game-meta span {
             background: rgba(59, 130, 246, 0.2);
-            padding: 0.2rem 0.5rem;
-            border-radius: 20px;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
         }
-        .game-description {
-            font-size: 0.8rem;
-            color: #b5d0ff;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-        
-        /* Affiliate Buttons */
-        .affiliate-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        .btn-affiliate {
-            flex: 1;
-            padding: 0.6rem 0.8rem;
-            border-radius: 2rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-        }
-        .btn-gog {
-            background: linear-gradient(135deg, #5a0ea0, #8b5cf6);
-            color: white;
-            border: 1px solid #a78bfa;
-        }
-        .btn-gog:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        
-        .btn-humble {
-            background: linear-gradient(135deg, #cb2d3e, #ef473a);
-            color: white;
-            border: 1px solid #f87171;
-        }
-        .btn-humble:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        
-        .btn-gmg {
-            background: linear-gradient(135deg, #1f7d53, #10b981);
-            color: white;
-            border: 1px solid #34d399;
-        }
-        .btn-gmg:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        
-        .btn-steam {
-            background: linear-gradient(135deg, #171a21, #2a475e);
-            color: white;
-            border: 1px solid #3b82f6;
-        }
-        .btn-steam:hover { transform: translateY(-2px); filter: brightness(1.1); }
-        
-        /* Price Comparison */
-        .price-compare {
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: 0.8rem;
-            padding: 0.6rem;
-            margin-top: 0.8rem;
-            font-size: 0.7rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        .best-price {
-            color: #4ade80;
-            font-weight: 700;
+        .game-rating {
+            color: #fbbf24;
+            margin: 0.5rem 0;
         }
         
-        /* Newsletter */
-        .newsletter {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Synopsis */
+        .synopsis {
+            background: rgba(22, 32, 55, 0.8);
             border-radius: 1.5rem;
-            padding: 2.5rem;
-            text-align: center;
-            margin: 3rem 0;
+            padding: 2rem;
+            margin-bottom: 2rem;
             border: 1px solid rgba(59, 130, 246, 0.3);
         }
-        .newsletter h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .newsletter form {
+        .synopsis h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             display: flex;
-            max-width: 500px;
-            margin: 1rem auto 0;
+            align-items: center;
             gap: 0.5rem;
-            flex-wrap: wrap;
         }
-        .newsletter input {
-            flex: 1;
-            padding: 0.8rem 1rem;
-            border-radius: 2rem;
-            border: 1px solid #2a3a60;
-            background: rgba(10, 15, 30, 0.7);
-            color: white;
+        .synopsis p {
+            line-height: 1.6;
+            color: #cbd5e1;
         }
-        .newsletter button {
-            padding: 0.8rem 1.5rem;
+        
+        /* Price Cards */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .price-card {
+            background: rgba(22, 32, 55, 0.8);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        .price-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+        .price-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .price-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4ade80;
+            margin: 1rem 0;
+        }
+        .old-price {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: #f87171;
+        }
+        .discount {
+            background: #10b981;
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+        }
+        .cta-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 0.8rem;
             border-radius: 2rem;
-            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
-            border: none;
-            color: white;
             font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.2s;
+            border: none;
             cursor: pointer;
+            text-align: center;
+        }
+        .cta-gog {
+            background: linear-gradient(135deg, #5a0ea0, #8b5cf6);
+            color: white;
+        }
+        .cta-humble {
+            background: linear-gradient(135deg, #cb2d3e, #ef473a);
+            color: white;
+        }
+        .cta-gmg {
+            background: linear-gradient(135deg, #1f7d53, #10b981);
+            color: white;
+        }
+        .cta-steam {
+            background: linear-gradient(135deg, #171a21, #2a475e);
+            color: white;
+        }
+        .cta-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+        
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .feature {
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        
+        /* System Requirements */
+        .sysreq {
+            background: rgba(22, 32, 55, 0.8);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .sysreq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .sysreq-min, .sysreq-rec {
+            background: rgba(10, 15, 30, 0.5);
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+        .sysreq h4 {
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+        .sysreq ul {
+            list-style: none;
+            font-size: 0.8rem;
+        }
+        .sysreq li {
+            margin: 0.5rem 0;
+            color: #cbd5e1;
+        }
+        
+        /* Screenshots */
+        .screenshots {
+            margin: 2rem 0;
+        }
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .screenshot-grid img {
+            width: 100%;
+            border-radius: 1rem;
+            transition: transform 0.3s;
+        }
+        .screenshot-grid img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* FAQ */
+        .faq {
+            background: rgba(22, 32, 55, 0.8);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .faq-item {
+            margin: 1rem 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            padding-bottom: 1rem;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #3b82f6;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+        .faq-answer {
+            margin-top: 0.5rem;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            display: block;
         }
         
         /* Footer */
@@ -273,261 +281,194 @@
         }
         
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .game-grid { grid-template-columns: 1fr; }
-            .nav-links { justify-content: center; }
+            .game-title { font-size: 2rem; }
+            .price-grid { grid-template-columns: 1fr; }
+            .sysreq-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-gamepad"></i> GameHub
+    <header class="game-header">
+        <img src="{{BG_IMAGE}}" class="game-bg" alt="{{TITLE}} background" onerror="this.style.display='none'">
+        <div class="game-header-content">
+            <h1 class="game-title">{{TITLE}}</h1>
+            <div class="game-meta">
+                <span><i class="fas fa-tag"></i> {{GENRE}}</span>
+                <span><i class="far fa-calendar"></i> {{RELEASE_YEAR}}</span>
+                <span><i class="fas fa-code-branch"></i> {{DEVELOPER}}</span>
+                <span><i class="fas fa-building"></i> {{PUBLISHER}}</span>
             </div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#games">Games</a>
-                <a href="#deals">Deals</a>
-                <a href="#reviews">Reviews</a>
-                <a href="#affiliate">Affiliate</a>
+            <div class="game-rating">
+                {{RATING_STARS}} ({{RATING_SCORE}}/10 dari {{RATING_COUNT}} user)
             </div>
         </div>
-    </nav>
+    </header>
 
-    <section class="hero">
-        <h1>Download Game PC <br>Dengan Harga Terbaik</h1>
-        <p>Bandingkan harga dari official store seperti GOG, Humble Bundle, Green Man Gaming, dan Steam. Dapatkan game favoritmu dengan diskon hingga 80%!</p>
-    </section>
-
-    <div class="container" id="games">
-        <div class="section-title">
-            <i class="fas fa-fire"></i>
-            <h2>Game Populer Minggu Ini</h2>
-        </div>
-        <div class="game-grid" id="gameGrid">
-            <!-- Game cards akan di-load via JavaScript -->
-        </div>
-    </div>
-
-    <!-- Affiliate Info Section -->
     <div class="container">
-        <div class="section-title">
-            <i class="fas fa-store"></i>
-            <h2>Official Game Store Partner</h2>
+        <!-- Synopsis -->
+        <div class="synopsis">
+            <h2><i class="fas fa-book-open"></i> Tentang {{TITLE}}</h2>
+            <p>{{DESCRIPTION}}</p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-            <div style="background: rgba(139, 92, 246, 0.1); border-radius: 1rem; padding: 1.2rem; text-align: center; border: 1px solid rgba(139, 92, 246, 0.3);">
-                <i class="fab fa-gog" style="font-size: 2rem; color: #8b5cf6;"></i>
-                <h3 style="margin: 0.5rem 0;">GOG.com</h3>
-                <p style="font-size: 0.8rem;">DRM-Free games, classic titles, harga tetap</p>
-                <span style="font-size: 0.7rem; color: #4ade80;">✓ Komisi affiliate mendukung developer</span>
-            </div>
-            <div style="background: rgba(239, 71, 58, 0.1); border-radius: 1rem; padding: 1.2rem; text-align: center; border: 1px solid rgba(239, 71, 58, 0.3);">
-                <i class="fas fa-gift" style="font-size: 2rem; color: #ef473a;"></i>
-                <h3 style="margin: 0.5rem 0;">Humble Bundle</h3>
-                <p style="font-size: 0.8rem;">Bundle murah, 5% donasi ke charity</p>
-                <span style="font-size: 0.7rem; color: #4ade80;">✓ Komisi hingga 8.46%</span>
-            </div>
-            <div style="background: rgba(16, 185, 129, 0.1); border-radius: 1rem; padding: 1.2rem; text-align: center; border: 1px solid rgba(16, 185, 129, 0.3);">
-                <i class="fas fa-tags" style="font-size: 2rem; color: #10b981;"></i>
-                <h3 style="margin: 0.5rem 0;">Green Man Gaming</h3>
-                <p style="font-size: 0.8rem;">Diskon besar-besaran, regional pricing</p>
-                <span style="font-size: 0.7rem; color: #4ade80;">✓ Komisi 5%</span>
-            </div>
-            <div style="background: rgba(59, 130, 246, 0.1); border-radius: 1rem; padding: 1.2rem; text-align: center; border: 1px solid rgba(59, 130, 246, 0.3);">
-                <i class="fab fa-steam" style="font-size: 2rem; color: #3b82f6;"></i>
-                <h3 style="margin: 0.5rem 0;">Steam</h3>
-                <p style="font-size: 0.8rem;">Platform gaming terbesar di dunia</p>
-                <span style="font-size: 0.7rem; color: #fbbf24;">⚠️ Program affiliate terbatas (Curator)</span>
-            </div>
-        </div>
-    </div>
 
-    <!-- Newsletter -->
-    <div class="container">
-        <div class="newsletter">
-            <h3><i class="fas fa-envelope"></i> Dapatkan Update Game Diskon</h3>
-            <p>Berlangganan newsletter untuk info game diskon terbaru dari official store.</p>
-            <form id="newsletterForm">
-                <input type="email" placeholder="Email kamu" required>
-                <button type="submit">Subscribe</button>
-            </form>
+        <!-- Price Comparison & CTA -->
+        <h2 style="margin-bottom: 1rem;"><i class="fas fa-tags"></i> Beli {{TITLE}} - Harga Terbaik</h2>
+        <div class="price-grid">
+            <div class="price-card">
+                <i class="fab fa-gog" style="color: #8b5cf6;"></i>
+                <h3>GOG.com</h3>
+                <div class="price">{{GOG_PRICE}}</div>
+                <div class="old-price">{{GOG_OLD_PRICE}}</div>
+                <div class="discount">{{GOG_DISCOUNT}}</div>
+                <a href="{{GOG_LINK}}" target="_blank" rel="nofollow" class="cta-btn cta-gog">
+                    <i class="fab fa-gog"></i> Beli di GOG
+                </a>
+            </div>
+            <div class="price-card">
+                <i class="fas fa-gift" style="color: #ef473a;"></i>
+                <h3>Humble Bundle</h3>
+                <div class="price">{{HUMBLE_PRICE}}</div>
+                <div class="old-price">{{HUMBLE_OLD_PRICE}}</div>
+                <div class="discount">{{HUMBLE_DISCOUNT}}</div>
+                <a href="{{HUMBLE_LINK}}" target="_blank" rel="nofollow" class="cta-btn cta-humble">
+                    <i class="fas fa-gift"></i> Beli di Humble
+                </a>
+            </div>
+            <div class="price-card">
+                <i class="fas fa-tags" style="color: #10b981;"></i>
+                <h3>Green Man Gaming</h3>
+                <div class="price">{{GMG_PRICE}}</div>
+                <div class="old-price">{{GMG_OLD_PRICE}}</div>
+                <div class="discount">{{GMG_DISCOUNT}}</div>
+                <a href="{{GMG_LINK}}" target="_blank" rel="nofollow" class="cta-btn cta-gmg">
+                    <i class="fas fa-tags"></i> Beli di GMG
+                </a>
+            </div>
+            <div class="price-card">
+                <i class="fab fa-steam" style="color: #3b82f6;"></i>
+                <h3>Steam</h3>
+                <div class="price">{{STEAM_PRICE}}</div>
+                <div class="old-price">{{STEAM_OLD_PRICE}}</div>
+                <div class="discount">{{STEAM_DISCOUNT}}</div>
+                <a href="{{STEAM_LINK}}" target="_blank" rel="nofollow" class="cta-btn cta-steam">
+                    <i class="fab fa-steam"></i> Beli di Steam
+                </a>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-download"></i>
+                <h4>Download Resmi</h4>
+                <p>Dari official store terpercaya</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-tag"></i>
+                <h4>Harga Terbaik</h4>
+                <p>Bandingkan dari 4 store</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h4>100% Legal</h4>
+                <p>Lisensi resmi original</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <h4>Support Developer</h4>
+                <p>Komisi untuk developer game</p>
+            </div>
+        </div>
+
+        <!-- System Requirements -->
+        <div class="sysreq">
+            <h2><i class="fas fa-desktop"></i> System Requirements</h2>
+            <div class="sysreq-grid">
+                <div class="sysreq-min">
+                    <h4>Minimum Requirements</h4>
+                    <ul>
+                        <li><strong>OS:</strong> {{MIN_OS}}</li>
+                        <li><strong>Processor:</strong> {{MIN_CPU}}</li>
+                        <li><strong>Memory:</strong> {{MIN_RAM}}</li>
+                        <li><strong>Graphics:</strong> {{MIN_GPU}}</li>
+                        <li><strong>Storage:</strong> {{MIN_STORAGE}}</li>
+                    </ul>
+                </div>
+                <div class="sysreq-rec">
+                    <h4>Recommended Requirements</h4>
+                    <ul>
+                        <li><strong>OS:</strong> {{REC_OS}}</li>
+                        <li><strong>Processor:</strong> {{REC_CPU}}</li>
+                        <li><strong>Memory:</strong> {{REC_RAM}}</li>
+                        <li><strong>Graphics:</strong> {{REC_GPU}}</li>
+                        <li><strong>Storage:</strong> {{REC_STORAGE}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screenshots -->
+        <div class="screenshots">
+            <h2><i class="fas fa-images"></i> Screenshots</h2>
+            <div class="screenshot-grid">
+                {{SCREENSHOTS}}
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq">
+            <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ❓ Apakah {{TITLE}} bisa dimainkan offline?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Ya, {{TITLE}} dapat dimainkan secara offline setelah proses download dan instalasi selesai. Beberapa fitur online mungkin memerlukan koneksi internet.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ❓ Berapa ukuran file {{TITLE}}?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Ukuran file {{TITLE}} sekitar {{FILE_SIZE}}. Pastikan kamu memiliki ruang penyimpanan yang cukup.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ❓ Apakah ada garansi refund?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Kebijakan refund tergantung store tempat kamu membeli. GOG memiliki kebijakan refund 30 hari, Steam 14 hari dengan syarat <2 jam gameplay.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ❓ Mana store yang paling murah?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">Harga dapat berbeda-beda setiap store. Kami sarankan untuk membandingkan harga di semua store sebelum membeli.</div>
+            </div>
         </div>
     </div>
 
     <footer class="footer">
-        <p><i class="fas fa-gamepad"></i> GameHub - Tempat terbaik untuk download game dengan harga resmi dan terpercaya.</p>
-        <p style="margin-top: 0.5rem;">Affiliate Partner: GOG.com, Humble Bundle, Green Man Gaming, Steam</p>
-        <p style="margin-top: 0.5rem; font-size: 0.7rem;">&copy; 2024 - Kami adalah partner affiliate resmi. Harga dapat berubah sewaktu-waktu.</p>
+        <p><i class="fas fa-gamepad"></i> {{TITLE}} - Official Game Store Partner: GOG.com, Humble Bundle, Green Man Gaming, Steam</p>
+        <p style="margin-top: 0.5rem;">&copy; 2024 - Kami adalah partner affiliate resmi. Harga dapat berubah sewaktu-waktu.</p>
     </footer>
 
     <script>
-        // Ganti dengan affiliate ID kamu
-        const AFFILIATE_IDS = {
-            gog: 'YOUR_GOG_AFFILIATE_ID',     // Daftar di adpub.gog.com
-            humble: 'YOUR_HUMBLE_ID',          // Daftar di humblebundle.com/affiliate
-            gmg: 'YOUR_GMG_ID',               // Daftar di greenmangaming.com/affiliates
-            steam: ''                         // Steam Curator (no commision)
-        };
-        
-        // Database Game (bisa juga dari API)
-        const games = [
-            {
-                id: 1,
-                title: "The Witcher 3: Wild Hunt",
-                genre: "RPG, Open World",
-                releaseYear: "2015",
-                developer: "CD Projekt Red",
-                description: "Game RPG epik dengan cerita mendalam, grafis memukau, dan dunia open world yang luas. Pemenang Game of The Year 2015.",
-                image: "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg",
-                affiliate: {
-                    gog: "https://www.gog.com/game/the_witcher_3_wild_hunt?pp=YOUR_GOG_ID",
-                    humble: "https://www.humblebundle.com/store/the-witcher-3-wild-hunt?partner=YOUR_HUMBLE_ID",
-                    gmg: "https://www.greenmangaming.com/games/the-witcher-3-wild-hunt/?tap_a=YOUR_GMG_ID",
-                    steam: "https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/"
-                },
-                prices: { gog: "$9.99", humble: "$11.99", gmg: "$10.49", steam: "$9.99" },
-                bestPrice: "GOG"
-            },
-            {
-                id: 2,
-                title: "Cyberpunk 2077",
-                genre: "RPG, Action, Sci-Fi",
-                releaseYear: "2020",
-                developer: "CD Projekt Red",
-                description: "Game open world futuristik dengan grafis next-gen, cerita mendalam, dan gameplay yang terus berkembang.",
-                image: "https://images.pexels.com/photos/275033/pexels-photo-275033.jpeg",
-                affiliate: {
-                    gog: "https://www.gog.com/game/cyberpunk_2077?pp=YOUR_GOG_ID",
-                    humble: "https://www.humblebundle.com/store/cyberpunk-2077?partner=YOUR_HUMBLE_ID",
-                    gmg: "https://www.greenmangaming.com/games/cyberpunk-2077/?tap_a=YOUR_GMG_ID",
-                    steam: "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"
-                },
-                prices: { gog: "$29.99", humble: "$29.99", gmg: "$27.99", steam: "$29.99" },
-                bestPrice: "GMG"
-            },
-            {
-                id: 3,
-                title: "Stardew Valley",
-                genre: "Simulation, Farming, RPG",
-                releaseYear: "2016",
-                developer: "ConcernedApe",
-                description: "Game farming simulation yang menenangkan dengan gameplay adiktif. Tanam, ternak, kumpulkan, dan bangun pertanian impianmu.",
-                image: "https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg",
-                affiliate: {
-                    gog: "https://www.gog.com/game/stardew_valley?pp=YOUR_GOG_ID",
-                    humble: "https://www.humblebundle.com/store/stardew-valley?partner=YOUR_HUMBLE_ID",
-                    gmg: "https://www.greenmangaming.com/games/stardew-valley/?tap_a=YOUR_GMG_ID",
-                    steam: "https://store.steampowered.com/app/413150/Stardew_Valley/"
-                },
-                prices: { gog: "$14.99", humble: "$14.99", gmg: "$13.99", steam: "$14.99" },
-                bestPrice: "GMG"
-            },
-            {
-                id: 4,
-                title: "Hades",
-                genre: "Roguelike, Action",
-                releaseYear: "2020",
-                developer: "Supergiant Games",
-                description: "Game roguelike dengan visual artistik memukau, gameplay adiktif, dan cerita yang menarik.  Best Action Game of 2020.",
-                image: "https://images.pexels.com/photos/316199/pexels-photo-316199.jpeg",
-                affiliate: {
-                    gog: "https://www.gog.com/game/hades?pp=YOUR_GOG_ID",
-                    humble: "https://www.humblebundle.com/store/hades?partner=YOUR_HUMBLE_ID",
-                    gmg: "https://www.greenmangaming.com/games/hades/?tap_a=YOUR_GMG_ID",
-                    steam: "https://store.steampowered.com/app/1145360/Hades/"
-                },
-                prices: { gog: "$24.99", humble: "$24.99", gmg: "$22.49", steam: "$24.99" },
-                bestPrice: "GMG"
-            },
-            {
-                id: 5,
-                title: "Baldur's Gate 3",
-                genre: "RPG, Turn-Based",
-                releaseYear: "2023",
-                developer: "Larian Studios",
-                description: "Game RPG turn-based terbaik 2023 dengan kebebasan penuh dalam memilih jalan cerita. Game of The Year 2023.",
-                image: "https://images.pexels.com/photos/316199/pexels-photo-316199.jpeg",
-                affiliate: {
-                    gog: "https://www.gog.com/game/baldurs_gate_3?pp=YOUR_GOG_ID",
-                    humble: "https://www.humblebundle.com/store/baldurs-gate-3?partner=YOUR_HUMBLE_ID",
-                    gmg: "https://www.greenmangaming.com/games/baldurs-gate-3/?tap_a=YOUR_GMG_ID",
-                    steam: "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/"
-                },
-                prices: { gog: "$59.99", humble: "$59.99", gmg: "$55.99", steam: "$59.99" },
-                bestPrice: "GMG"
-            },
-            {
-                id: 6,
-                title: "Disco Elysium",
-                genre: "RPG, Detective",
-                releaseYear: "2019",
-                developer: "ZA/UM",
-                description: "Game RPG unik dengan sistem dialog dan investigasi yang mendalam. Game of The Year 2019.",
-                image: "https://images.pexels.com/photos/316199/pexels-photo-316199.jpeg",
-                affiliate: {
-                    gog: "https://www.gog.com/game/disco_elysium?pp=YOUR_GOG_ID",
-                    humble: "https://www.humblebundle.com/store/disco-elysium?partner=YOUR_HUMBLE_ID",
-                    gmg: "https://www.greenmangaming.com/games/disco-elysium/?tap_a=YOUR_GMG_ID",
-                    steam: "https://store.steampowered.com/app/632470/Disco_Elysium/"
-                },
-                prices: { gog: "$39.99", humble: "$39.99", gmg: "$35.99", steam: "$39.99" },
-                bestPrice: "GMG"
-            }
-        ];
-        
-        // Function to render game cards
-        function renderGames() {
-            const grid = document.getElementById('gameGrid');
-            if (!grid) return;
-            
-            grid.innerHTML = games.map(game => `
-                <div class="game-card">
-                    <img src="${game.image}" class="game-image" alt="${game.title}" onerror="this.src='https://placehold.co/400x180/1e293b/ffffff?text=Game+Thumbnail'">
-                    <div class="game-info">
-                        <div class="game-title">${game.title}</div>
-                        <div class="game-meta">
-                            <span><i class="fas fa-tag"></i> ${game.genre}</span>
-                            <span><i class="far fa-calendar"></i> ${game.releaseYear}</span>
-                            <span><i class="fas fa-code-branch"></i> ${game.developer}</span>
-                        </div>
-                        <div class="game-description">${game.description}</div>
-                        
-                        <div class="price-compare">
-                            <span>💰 Best Price:</span>
-                            <span class="best-price"><i class="fas ${game.bestPrice === 'GOG' ? 'fab fa-gog' : (game.bestPrice === 'Humble' ? 'fas fa-gift' : 'fas fa-tag')}"></i> ${game.prices[game.bestPrice.toLowerCase()]} (${game.bestPrice})</span>
-                        </div>
-                        
-                        <div class="affiliate-buttons">
-                            <a href="${game.affiliate.gog.replace('YOUR_GOG_ID', AFFILIATE_IDS.gog)}" target="_blank" rel="nofollow" class="btn-affiliate btn-gog">
-                                <i class="fab fa-gog"></i> GOG ${game.prices.gog}
-                            </a>
-                            <a href="${game.affiliate.humble.replace('YOUR_HUMBLE_ID', AFFILIATE_IDS.humble)}" target="_blank" rel="nofollow" class="btn-affiliate btn-humble">
-                                <i class="fas fa-gift"></i> Humble ${game.prices.humble}
-                            </a>
-                            <a href="${game.affiliate.gmg.replace('YOUR_GMG_ID', AFFILIATE_IDS.gmg)}" target="_blank" rel="nofollow" class="btn-affiliate btn-gmg">
-                                <i class="fas fa-tags"></i> GMG ${game.prices.gmg}
-                            </a>
-                            <a href="${game.affiliate.steam}" target="_blank" rel="nofollow" class="btn-affiliate btn-steam">
-                                <i class="fab fa-steam"></i> Steam ${game.prices.steam}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        // Newsletter handler
-        document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
-            alert(`Terima kasih ${email}! Kamu akan mendapat update game diskon.`);
-            e.target.reset();
+        // Simple FAQ toggle (optional)
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const answer = q.nextElementSibling;
+                const icon = q.querySelector('i');
+                if (answer.style.display === 'none') {
+                    answer.style.display = 'block';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    answer.style.display = 'none';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
         });
-        
-        // Render games on load
-        document.addEventListener('DOMContentLoaded', renderGames);
     </script>
 </body>
 </html>

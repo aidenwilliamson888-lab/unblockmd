@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎮 UNBLOCKED GAMES · MARKDOWN GENERATOR (FIXED)</title>
+    <title>🎮 RAWG GAMES · MARKDOWN GENERATOR (20.000 Req/Bulan)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -181,6 +181,36 @@
             text-align: center;
         }
         
+        .api-section {
+            grid-column: 1 / -1;
+            background: rgba(20, 30, 55, 0.6);
+            border-radius: 1rem;
+            padding: 0.8rem;
+            border: 1px solid #f59e0b;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .api-section label {
+            color: #f59e0b;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+        .api-section input {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(10, 15, 30, 0.7);
+            border: 1px solid #f59e0b;
+            border-radius: 0.6rem;
+            padding: 0.4rem 0.6rem;
+            color: white;
+            font-family: monospace;
+        }
+        
         .button-group {
             display: flex;
             gap: 0.8rem;
@@ -237,7 +267,6 @@
             display: flex;
             gap: 0.8rem;
         }
-        .game-thumb { width: 80px; height: 60px; object-fit: cover; border-radius: 8px; background: #1a2440; }
         .game-info { flex: 1; }
         .game-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 0.2rem; color: white; }
         .game-meta { font-size: 0.65rem; color: #8ba3d9; margin: 0.2rem 0; }
@@ -277,66 +306,86 @@
 <div class="container">
     <div class="hero-header">
         <div class="hero-title">
-            <i class="fas fa-gamepad"></i> UNBLOCKED GAMES · MARKDOWN GENERATOR
+            <i class="fas fa-gamepad"></i> RAWG GAMES · MARKDOWN GENERATOR
         </div>
         <div class="hero-badge">
             <span class="badge"><i class="fab fa-markdown"></i> Markdown Only</span>
-            <span class="badge"><i class="fas fa-database"></i> FreeToGame API</span>
-            <span class="badge"><i class="fas fa-gamepad"></i> 500+ Games</span>
+            <span class="badge"><i class="fas fa-database"></i> RAWG API (20.000/bulan)</span>
+            <span class="badge"><i class="fas fa-gamepad"></i> 500,000+ Games</span>
             <span class="badge"><i class="fas fa-shield-alt"></i> Anti-Banned</span>
             <span class="badge"><i class="fas fa-folder-open"></i> Split ZIP</span>
         </div>
     </div>
 
     <div class="control-panel">
+        <div class="api-section">
+            <label><i class="fas fa-key"></i> RAWG API Key</label>
+            <input type="text" id="apiKey" value="d0b9e52fcbfb4759b4f1efba469a6092" placeholder="Masukkan API Key RAWG">
+            <span style="color: #fbbf24; font-size: 0.65rem;">⚠️ 20.000 request/bulan - hemat!</span>
+        </div>
+
         <div class="input-group">
             <label><i class="fas fa-filter"></i> Platform</label>
             <select id="platformSelect">
-                <option value="all">🌐 Semua Platform</option>
+                <option value="">🌐 Semua Platform</option>
                 <option value="pc">💻 PC (Windows)</option>
-                <option value="browser">🌍 Browser (Unblocked)</option>
+                <option value="browser">🌍 Browser</option>
+                <option value="playstation">🎮 PlayStation</option>
+                <option value="xbox">🎮 Xbox</option>
+                <option value="ios">📱 iOS</option>
+                <option value="android">📱 Android</option>
             </select>
         </div>
 
         <div class="input-group">
             <label><i class="fas fa-tag"></i> Genre / Kategori</label>
             <select id="genreSelect">
-                <option value="all">🎮 Semua Genre</option>
-                <option value="mmorpg">⚔️ MMORPG</option>
-                <option value="shooter">🔫 Shooter</option>
-                <option value="strategy">♟️ Strategy</option>
-                <option value="racing">🏁 Racing</option>
-                <option value="sports">⚽ Sports</option>
-                <option value="action">🎬 Action</option>
-                <option value="survival">🏕️ Survival</option>
-                <option value="fighting">🥊 Fighting</option>
+                <option value="">🎮 Semua Genre</option>
+                <option value="action">Action</option>
+                <option value="shooter">Shooter</option>
+                <option value="strategy">Strategy</option>
+                <option value="racing">Racing</option>
+                <option value="sports">Sports</option>
+                <option value="rpg">RPG</option>
+                <option value="adventure">Adventure</option>
+                <option value="fighting">Fighting</option>
+                <option value="horror">Horror</option>
+                <option value="survival">Survival</option>
             </select>
         </div>
 
         <div class="input-group">
-            <label><i class="fas fa-hashtag"></i> Jumlah Game</label>
-            <input type="number" id="maxResults" value="30" min="5" max="200" step="5">
+            <label><i class="fas fa-hashtag"></i> Jumlah Game per Request</label>
+            <input type="number" id="pageSize" value="20" min="5" max="40">
+            <small>Maks 40 per request (hemat kuota)</small>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-layer-group"></i> Jumlah Halaman (Page)</label>
+            <input type="number" id="pages" value="5" min="1" max="50">
+            <small>Total game = PageSize x Pages</small>
         </div>
 
         <div class="title-templates">
             <label><i class="fas fa-random"></i> SEO Title Template (pisahkan dengan | )</label>
             <textarea id="titleTemplates" rows="2">{TITLE} ({YEAR}) - Mainkan Online Gratis Unblocked|{TITLE} ({YEAR}) - Game Unblocked | Bisa Dimainkan di Sekolah|✨ {TITLE} ({YEAR}) - Game Online Tanpa Download</textarea>
-            <div class="example-box" id="templateExample">Contoh: "Shell Shockers (2024) - Mainkan Online Gratis Unblocked"</div>
+            <div class="example-box" id="templateExample">Contoh: "Grand Theft Auto V (2013) - Mainkan Online Gratis Unblocked"</div>
         </div>
 
         <div class="landing-page">
             <label><i class="fas fa-link"></i> Landing Page URL</label>
             <input type="text" id="landingPageUrl" value="https://example.com/" placeholder="https://domainmu.com/">
-            <small>▸ Link CTA button langsung ke URL ini (tanpa tambahan)</small>
+            <small>▸ Link CTA button langsung ke URL ini</small>
         </div>
 
         <div class="genre-grid">
             <span style="color:#8ba3d9; font-size:0.7rem;">Popular:</span>
-            <button class="genre-btn" data-genre="shooter">🔫 Shooter</button>
-            <button class="genre-btn" data-genre="strategy">♟️ Strategy</button>
-            <button class="genre-btn" data-genre="racing">🏁 Racing</button>
-            <button class="genre-btn" data-genre="action">🎬 Action</button>
-            <button class="genre-btn" data-genre="fighting">🥊 Fighting</button>
+            <button class="genre-btn" data-genre="action">Action</button>
+            <button class="genre-btn" data-genre="shooter">Shooter</button>
+            <button class="genre-btn" data-genre="strategy">Strategy</button>
+            <button class="genre-btn" data-genre="racing">Racing</button>
+            <button class="genre-btn" data-genre="rpg">RPG</button>
+            <button class="genre-btn" data-genre="fighting">Fighting</button>
         </div>
 
         <div class="split-setting">
@@ -351,12 +400,12 @@
         </div>
     </div>
 
-    <div class="log-area" id="logArea"><div>⏳ Pilih genre dan klik Generate Markdown...</div></div>
+    <div class="log-area" id="logArea"><div>⏳ Masukkan API Key dan klik Generate Markdown...</div></div>
 
     <div id="resultsPanel">
         <h3><i class="fas fa-list"></i> Generated Files Preview <span id="resultCount" style="font-size:0.7rem;">0 files</span></h3>
         <div class="preview-grid" id="previewGrid">
-            <div style="color: #6b83b0; text-align: center; padding: 2rem;"><i class="fas fa-gamepad" style="font-size: 2rem;"></i><p>Generate markdown untuk unblocked games</p></div>
+            <div style="color: #6b83b0; text-align: center; padding: 2rem;"><i class="fas fa-gamepad" style="font-size: 2rem;"></i><p>Generate markdown dari RAWG API</p></div>
         </div>
     </div>
 
@@ -365,46 +414,18 @@
         <div id="downloadButtonsList"></div>
     </div>
 
-    <div class="footer">UNBLOCKED GAMES GENERATOR · FreeToGame API (dengan fallback data)</div>
+    <div class="footer">RAWG GAMES GENERATOR · 500,000+ Games · 20.000 Request/Bulan · Background Image HD</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 (function() {
-    // ========== GAME DATABASE LENGKAP (FALLBACK jika API gagal) ==========
-    const GAME_DB = {
-        shooter: [
-            { title: "Shell Shockers", desc: "Battle royale game where you're an egg with a gun!", year: 2022, thumb: "https://www.freetogame.com/g/31/thumbnail.jpg" },
-            { title: "1v1.LOL", desc: "Build and fight in this competitive battle royale!", year: 2021, thumb: "https://www.freetogame.com/g/30/thumbnail.jpg" },
-            { title: "Krunker", desc: "Fast-paced FPS browser game!", year: 2020, thumb: "https://www.freetogame.com/g/29/thumbnail.jpg" },
-            { title: "Zombs Royale", desc: "100-player last-man-standing IO game!", year: 2019, thumb: "https://www.freetogame.com/g/28/thumbnail.jpg" },
-            { title: "Bullet Force", desc: "Multiplayer FPS with modern weapons!", year: 2021, thumb: "https://www.freetogame.com/g/27/thumbnail.jpg" }
-        ],
-        strategy: [
-            { title: "Bloons TD", desc: "Tower defense game with monkeys popping balloons!", year: 2022, thumb: "https://www.freetogame.com/g/26/thumbnail.jpg" },
-            { title: "Kingdom Rush", desc: "Epic tower defense game!", year: 2020, thumb: "https://www.freetogame.com/g/25/thumbnail.jpg" },
-            { title: "Age of War", desc: "Build your army and evolve through ages!", year: 2021, thumb: "https://www.freetogame.com/g/24/thumbnail.jpg" }
-        ],
-        racing: [
-            { title: "Moto X3M", desc: "Epic bike racing game with stunts!", year: 2022, thumb: "https://www.freetogame.com/g/23/thumbnail.jpg" },
-            { title: "Madalin Stunt Cars", desc: "Drive supercars and perform stunts!", year: 2021, thumb: "https://www.freetogame.com/g/22/thumbnail.jpg" },
-            { title: "Drift Hunters", desc: "Realistic drifting experience!", year: 2020, thumb: "https://www.freetogame.com/g/21/thumbnail.jpg" }
-        ],
-        action: [
-            { title: "Stickman Legacy", desc: "Fight your way through enemies!", year: 2022, thumb: "https://www.freetogame.com/g/20/thumbnail.jpg" },
-            { title: "Fireboy and Watergirl", desc: "Classic puzzle platformer!", year: 2019, thumb: "https://www.freetogame.com/g/19/thumbnail.jpg" },
-            { title: "Run 3", desc: "Endless runner in space!", year: 2020, thumb: "https://www.freetogame.com/g/18/thumbnail.jpg" }
-        ],
-        fighting: [
-            { title: "Street Fighter", desc: "Classic fighting game!", year: 2021, thumb: "https://www.freetogame.com/g/17/thumbnail.jpg" },
-            { title: "Mortal Kombat", desc: "Iconic fighting game franchise!", year: 2020, thumb: "https://www.freetogame.com/g/16/thumbnail.jpg" },
-            { title: "Super Smash Flash", desc: "Platform fighter with popular characters!", year: 2022, thumb: "https://www.freetogame.com/g/15/thumbnail.jpg" }
-        ]
-    };
-
+    // DOM Elements
+    const apiKeyInput = document.getElementById('apiKey');
     const platformSelect = document.getElementById('platformSelect');
     const genreSelect = document.getElementById('genreSelect');
-    const maxResultsInput = document.getElementById('maxResults');
+    const pageSizeInput = document.getElementById('pageSize');
+    const pagesInput = document.getElementById('pages');
     const titleTemplatesArea = document.getElementById('titleTemplates');
     const landingPageUrl = document.getElementById('landingPageUrl');
     const filesPerZipInput = document.getElementById('filesPerZip');
@@ -419,6 +440,7 @@
 
     let generatedFiles = [];
     let zipResults = [];
+    let allGames = [];
 
     function log(msg, type = 'info') {
         const div = document.createElement('div');
@@ -439,41 +461,51 @@
         return templates[Math.floor(Math.random() * templates.length)].replace(/{TITLE}/g, title).replace(/{YEAR}/g, year);
     }
 
-    // Generate games dari lokal database (PASTI ADA GAMBAR)
-    function getGamesFromLocalDB(genre, platform, limit) {
-        const genreKey = genre === 'all' ? 'shooter' : genre;
-        const gamesList = GAME_DB[genreKey] || GAME_DB.shooter;
-        const platformFilter = platform === 'browser' ? 'Browser' : 'PC';
+    // Fetch games dari RAWG API
+    async function fetchGamesFromRAWG(apiKey, platform, genre, pageSize, page) {
+        let url = `https://api.rawg.io/api/games?key=${apiKey}&page_size=${pageSize}&page=${page}`;
         
-        let results = [];
-        for (let i = 0; i < limit && i < gamesList.length * 10; i++) {
-            const original = gamesList[i % gamesList.length];
-            results.push({
-                id: i,
-                title: original.title + (i >= gamesList.length ? ` ${Math.floor(i/gamesList.length)+1}` : ''),
-                genre: genreKey,
-                platform: platformFilter,
-                publisher: 'Unblocked Games',
-                developer: 'Various',
-                releaseDate: (original.year || 2022).toString(),
-                description: original.desc,
-                thumbnail: original.thumb,
-                gameUrl: '#',
-                source: 'Local DB'
-            });
+        if (platform && platform !== '') {
+            url += `&platforms=${platform}`;
         }
-        return results.slice(0, limit);
+        if (genre && genre !== '') {
+            url += `&genres=${genre}`;
+        }
+        
+        url += '&ordering=-metacritic'; // Sort by rating
+        
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        const data = await response.json();
+        return data.results || [];
     }
 
-    async function getGames(platform, genre, limit) {
-        log(`📡 Mengambil data game...`);
-        
-        // PAKAI LOCAL DB LANGSUNG (PASTI JALAN, ADA GAMBAR)
-        const games = getGamesFromLocalDB(genre, platform, limit);
-        log(`✅ Menggunakan database lokal - ${games.length} game ditemukan!`, 'success');
-        log(`🖼️ Setiap game memiliki thumbnail gambar asli dari FreeToGame!`, 'success');
-        
-        return games;
+    // Fetch semua halaman
+    async function fetchAllGames(apiKey, platform, genre, pageSize, totalPages) {
+        const allGames = [];
+        for (let page = 1; page <= totalPages; page++) {
+            log(`📡 Mengambil halaman ${page}/${totalPages}...`);
+            const games = await fetchGamesFromRAWG(apiKey, platform, genre, pageSize, page);
+            for (const game of games) {
+                allGames.push({
+                    id: game.id,
+                    title: game.name,
+                    genre: game.genres?.[0]?.name || 'Game',
+                    platform: game.platforms?.map(p => p.platform.name).join(', ') || 'Multi-platform',
+                    released: game.released || '2024',
+                    rating: game.rating || 0,
+                    description: game.description_raw || game.description || 'An exciting game that you can play anywhere!',
+                    backgroundImage: game.background_image,
+                    metacritic: game.metacritic,
+                    source: 'RAWG API'
+                });
+            }
+            log(`✅ Halaman ${page}: ${games.length} game`, 'success');
+            
+            // Delay sebentar biar ga kena rate limit
+            if (page < totalPages) await new Promise(r => setTimeout(r, 500));
+        }
+        return allGames;
     }
 
     function createSlug(title) {
@@ -483,15 +515,16 @@
     }
 
     function generateMarkdown(game, seoTitle, landingUrl) {
-        const year = game.releaseDate.slice(0,4);
+        const year = game.released ? game.released.slice(0,4) : '2024';
         const playUrl = landingUrl || '#';
-        const thumb = game.thumbnail || 'https://www.freetogame.com/g/images/default-thumbnail.jpg';
+        const thumb = game.backgroundImage || `https://picsum.photos/400/300?random=${game.id}`;
+        const ratingStar = game.rating ? '⭐'.repeat(Math.floor(game.rating)) + (game.rating % 1 >= 0.5 ? '½' : '') : '⭐⭐⭐';
         
         return `# ${seoTitle}
 
 <div align="center">
 
-<img src="${thumb}" alt="${game.title}" width="200" style="border-radius: 12px;">
+<img src="${thumb}" alt="${game.title}" width="250" style="border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
 
 </div>
 
@@ -503,9 +536,9 @@
 
 <div align="center">
 
-| **🎮 Platform** | **🎯 Genre** | **📅 Release** |
-|:---:|:---:|:---:|
-| ${game.platform} | ${game.genre} | ${year} |
+| **🎮 Platform** | **🎯 Genre** | **📅 Release** | **⭐ Rating** |
+|:---:|:---:|:---:|:---:|
+| ${game.platform} | ${game.genre} | ${year} | ${ratingStar} ${game.rating}/5 |
 
 </div>
 
@@ -515,7 +548,7 @@
 
 <div style="background: #0f172a; padding: 16px; border-radius: 12px;">
 
-${game.description}
+${game.description.substring(0, 400)}${game.description.length > 400 ? '...' : ''}
 
 </div>
 
@@ -540,7 +573,21 @@ ${game.description}
 - 🎮 Play directly in your browser - no download needed
 - 🔓 100% Unblocked - works on school/work networks
 - ⚡ Fast loading and smooth gameplay
+- 🕹️ Easy to learn, hard to master mechanics
 - 🌐 Compatible with all modern browsers
+
+---
+
+## 🎯 Game Details
+
+| Attribute | Information |
+|:---|:---|
+| **Title** | ${game.title} |
+| **Genre** | ${game.genre} |
+| **Platform** | ${game.platform} |
+| **Release Year** | ${year} |
+| **Metacritic Score** | ${game.metacritic || 'N/A'} |
+| **RAWG Rating** | ${game.rating}/5 |
 
 ---
 
@@ -549,41 +596,99 @@ ${game.description}
 <div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">
 **Alex M.** ⭐⭐⭐⭐⭐
 
-"Best unblocked game ever! I play it every day at school."
+"Best game ever! I play it every day. Amazing graphics and gameplay!"
 </div>
 
 <div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">
 **Jamie L.** ⭐⭐⭐⭐½
 
-"Really fun game, great graphics and smooth controls."
+"Really fun game, great controls and smooth experience. Highly recommended!"
+</div>
+
+<div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">
+**Taylor K.** ⭐⭐⭐⭐⭐
+
+"Works perfectly on my school computer! No lag, easy to play."
 </div>
 
 ---
 
+## ❓ Frequently Asked Questions
+
+<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">
+**❓ Is this game free to play?**
+
+Yes, ${game.title} is completely free to play!
+</div>
+
+<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">
+**❓ Do I need to download anything?**
+
+No download required! Just click the play button and start playing.
+</div>
+
+<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">
+**❓ Can I play this at school/work?**
+
+Yes! This game is unblocked and works on most school/work networks.
+</div>
+
+---
+
+<div align="center">
+
 **${game.title} - Play Unblocked Online Free | ${game.genre} Game | Browser Game**
-`;
+
+</div>`;
     }
 
     async function generateFiles() {
+        const apiKey = apiKeyInput.value.trim();
+        if (!apiKey) {
+            log('❌ Masukkan RAWG API Key terlebih dahulu!', 'error');
+            return;
+        }
+        
         const platform = platformSelect.value;
         const genre = genreSelect.value;
-        const limit = parseInt(maxResultsInput.value) || 30;
+        const pageSize = parseInt(pageSizeInput.value) || 20;
+        const pages = parseInt(pagesInput.value) || 5;
         const filesPerZip = parseInt(filesPerZipInput.value) || 50;
         const titleTemplates = getTitleTemplates();
         const landingUrl = landingPageUrl.value.trim();
         
-        const genreName = genreSelect.options[genreSelect.selectedIndex]?.text || genre;
-        
-        log(`🎮 Menggenerate untuk genre: ${genreName} (${limit} game)...`);
+        const totalGamesEstimate = pageSize * pages;
+        log(`🎮 Mengambil game dari RAWG API...`);
+        log(`📊 Estimasi ${totalGamesEstimate} game (${pageSize} game/page x ${pages} page)`);
+        log(`⏱️ Proses estimasi: ${pages * 1.5} detik + generate`);
         
         generateBtn.disabled = true;
-        generateBtn.innerHTML = '<span class="loading"></span> Generating...';
+        generateBtn.innerHTML = '<span class="loading"></span> Fetching from RAWG...';
         
-        const games = await getGames(platform, genre, limit);
+        try {
+            allGames = await fetchAllGames(apiKey, platform, genre, pageSize, pages);
+            log(`✅ Berhasil mengambil ${allGames.length} game dari RAWG API!`, 'success');
+        } catch(e) {
+            log(`❌ Error: ${e.message}`, 'error');
+            log(`💡 Cek API Key atau coba kurangi jumlah page`, 'error');
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<i class="fas fa-gamepad"></i> Generate Markdown';
+            return;
+        }
+        
+        if (allGames.length === 0) {
+            log('❌ Tidak ada game ditemukan. Coba ganti filter genre/platform.', 'error');
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<i class="fas fa-gamepad"></i> Generate Markdown';
+            return;
+        }
+        
+        generateBtn.innerHTML = '<span class="loading"></span> Generating Markdown...';
         
         const files = [];
-        for (const game of games) {
-            const year = game.releaseDate.slice(0,4);
+        for (let i = 0; i < allGames.length; i++) {
+            const game = allGames[i];
+            const year = game.released ? game.released.slice(0,4) : '2024';
             const slug = createSlug(game.title);
             const seoTitle = getRandomTitle(titleTemplates, game.title, year);
             const markdown = generateMarkdown(game, seoTitle, landingUrl);
@@ -594,12 +699,17 @@ ${game.description}
                 title: game.title,
                 genre: game.genre
             });
+            
+            if ((i + 1) % 10 === 0) {
+                log(`📝 Progress: ${i+1}/${allGames.length} files...`);
+            }
         }
         
         generatedFiles = files;
         updatePreview();
         log(`✅ Berhasil generate ${files.length} file markdown!`, 'success');
         
+        // Split into ZIPs
         const folders = [];
         for (let i = 0; i < files.length; i += filesPerZip) {
             folders.push(files.slice(i, i + filesPerZip));
@@ -608,7 +718,7 @@ ${game.description}
         zipResults = [];
         for (let i = 0; i < folders.length; i++) {
             const zip = new JSZip();
-            const name = `unblocked_games_part${String(i+1).padStart(3, '0')}`;
+            const name = `rawg_games_part${String(i+1).padStart(3, '0')}`;
             for (const f of folders[i]) zip.file(f.filename, f.content);
             const blob = await zip.generateAsync({ type: 'blob' });
             zipResults.push({ name: `${name}.zip`, blob: blob, fileCount: folders[i].length });
@@ -637,6 +747,8 @@ ${game.description}
         downloadAllZipBtn.disabled = false;
         generateBtn.disabled = false;
         generateBtn.innerHTML = '<i class="fas fa-gamepad"></i> Generate Markdown';
+        
+        log(`📊 Total request API yang digunakan: ${pages} dari 20.000 quota bulanan`, 'info');
     }
     
     function updatePreview() {
@@ -658,7 +770,7 @@ ${game.description}
     }
     
     function escapeHtml(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
-    function clearResults() { generatedFiles = []; zipResults = []; updatePreview(); exportPanel.style.display = 'none'; downloadAllZipBtn.disabled = true; log('🗑️ Dibersihkan', 'info'); }
+    function clearResults() { generatedFiles = []; zipResults = []; allGames = []; updatePreview(); exportPanel.style.display = 'none'; downloadAllZipBtn.disabled = true; log('🗑️ Hasil dibersihkan', 'info'); }
     function downloadAll() { zipResults.forEach(z => { const a = document.createElement('a'); a.href = URL.createObjectURL(z.blob); a.download = z.name; a.click(); URL.revokeObjectURL(a.href); }); log(`📦 ${zipResults.length} ZIP didownload!`, 'success'); }
     
     document.querySelectorAll('.genre-btn').forEach(btn => {
@@ -666,22 +778,22 @@ ${game.description}
             document.querySelectorAll('.genre-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             genreSelect.value = btn.getAttribute('data-genre');
-            generateFiles();
         });
     });
     
     titleTemplatesArea.addEventListener('input', () => {
         const t = getTitleTemplates();
-        if (t.length) document.getElementById('templateExample').innerHTML = `Contoh: "${t[0].replace(/{TITLE}/g, 'Shell Shockers').replace(/{YEAR}/g, '2024').substring(0, 70)}..."`;
+        if (t.length) document.getElementById('templateExample').innerHTML = `Contoh: "${t[0].replace(/{TITLE}/g, 'Grand Theft Auto V').replace(/{YEAR}/g, '2013').substring(0, 70)}..."`;
     });
     
     generateBtn.addEventListener('click', generateFiles);
     downloadAllZipBtn.addEventListener('click', downloadAll);
     clearBtn.addEventListener('click', clearResults);
     
-    log('✅ UNBLOCKED GAMES GENERATOR siap!');
-    log('📚 Database lokal dengan gambar asli dari FreeToGame');
-    log('🎮 Generate markdown game unblocked tanpa API');
+    log('✅ RAWG GAMES MARKDOWN GENERATOR siap!');
+    log('📚 API Key sudah terisi: d0b9...');
+    log('🎮 500,000+ game dari RAWG API dengan gambar HD');
+    log('📊 20.000 request/bulan - hemat!');
 })();
 </script>
 </body>

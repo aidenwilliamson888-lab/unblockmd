@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📝 GAME MARKDOWN GENERATOR · Untuk classroom.wiki</title>
+    <title>💾 DOWNLOAD GAME · MARKDOWN GENERATOR (Premium)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
         .hero-title {
             font-size: 2rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #fff, #a5d8ff, #93c5fd);
+            background: linear-gradient(135deg, #fff, #fbbf24, #f59e0b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex;
@@ -58,7 +58,7 @@
             flex-wrap: wrap;
         }
         .hero-title i {
-            background: linear-gradient(135deg, #3b82f6, #10b981);
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -147,6 +147,35 @@
             padding: 0.4rem 0.6rem;
             color: white;
             font-family: monospace;
+        }
+        
+        .landing-section {
+            background: rgba(20, 30, 55, 0.6);
+            border-radius: 1rem;
+            padding: 0.8rem;
+            border: 1px solid #10b981;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .landing-section label {
+            color: #10b981;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+        .landing-section input {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(10, 15, 30, 0.7);
+            border: 1px solid #10b981;
+            border-radius: 0.6rem;
+            padding: 0.4rem 0.6rem;
+            color: white;
         }
         
         .title-templates {
@@ -346,13 +375,13 @@
 <div class="container">
     <div class="hero-header">
         <div class="hero-title">
-            <i class="fas fa-gamepad"></i> GAME MARKDOWN GENERATOR
+            <i class="fas fa-download"></i> DOWNLOAD GAME · MARKDOWN GENERATOR
         </div>
         <div class="hero-badge">
-            <span class="badge"><i class="fab fa-markdown"></i> Markdown Only</span>
+            <span class="badge"><i class="fab fa-markdown"></i> Premium Markdown</span>
             <span class="badge"><i class="fas fa-database"></i> RAWG API</span>
             <span class="badge"><i class="fas fa-gamepad"></i> 500,000+ Games</span>
-            <span class="badge"><i class="fas fa-link"></i> Link ke classroom.wiki</span>
+            <span class="badge"><i class="fas fa-download"></i> CTA Download</span>
             <span class="badge"><i class="fas fa-folder-open"></i> Split ZIP</span>
         </div>
     </div>
@@ -373,6 +402,12 @@
             <small style="color: #8ba3d9;">Contoh ID: 5285 (The Witcher 3), 3498 (Skyrim), 4062 (Portal 2), 41494 (Cyberpunk 2077)</small>
         </div>
 
+        <div class="landing-section">
+            <label><i class="fas fa-link"></i> Download Page URL</label>
+            <input type="text" id="landingUrl" value="https://classroom.wiki/game.php/" placeholder="https://domainkamu.com/download/">
+            <small>▸ Link download akan mengarah ke: {url}/{id}</small>
+        </div>
+
         <div class="file-import">
             <label><i class="fas fa-file-import"></i> Import dari file .txt</label>
             <input type="file" id="txtFileInput" accept=".txt">
@@ -381,8 +416,8 @@
 
         <div class="title-templates">
             <label><i class="fas fa-random"></i> SEO Title Template (pisahkan dengan | )</label>
-            <textarea id="titleTemplates" rows="2">{TITLE} ({YEAR}) - Mainkan Online Gratis|Main {TITLE} ({YEAR}) Online Free|✨ {TITLE} ({YEAR}) - Game Online Tanpa Download</textarea>
-            <div class="example-box" id="templateExample">Contoh: "The Witcher 3 (2015) - Mainkan Online Gratis"</div>
+            <textarea id="titleTemplates" rows="3">Download {TITLE} ({YEAR}) PC Game Full Version Free|{TITLE} ({YEAR}) PC Download - Full Game Free|Download Game {TITLE} ({YEAR}) Gratis Full Version|{TITLE} ({YEAR}) Full Version PC Download|🎮 {TITLE} ({YEAR}) Download PC Game Free</textarea>
+            <div class="example-box" id="templateExample">Contoh: "Download The Witcher 3 (2015) PC Game Full Version Free"</div>
         </div>
 
         <div class="split-setting">
@@ -391,7 +426,7 @@
         </div>
 
         <div class="button-group">
-            <button class="btn btn-primary" id="generateBtn"><i class="fab fa-markdown"></i> Generate Markdown</button>
+            <button class="btn btn-primary" id="generateBtn"><i class="fas fa-download"></i> Generate Markdown</button>
             <button class="btn btn-success" id="downloadAllZipBtn" disabled><i class="fas fa-archive"></i> Download All ZIPs</button>
             <button class="btn btn-warning" id="clearBtn"><i class="fas fa-trash"></i> Clear</button>
         </div>
@@ -408,14 +443,14 @@
         </div>
         <div class="log-area" id="logArea">
             <div>⏳ Masukkan ID Game dan klik Generate Markdown...</div>
-            <div>📁 File .md akan berisi link ke: https://classroom.wiki/game.php/{id}</div>
+            <div>💾 Artikel fokus ke Download Game PC Full Version</div>
         </div>
     </div>
 
     <div id="resultsPanel">
         <h3><i class="fas fa-list"></i> Generated Files Preview <span id="resultCount" style="font-size:0.7rem;">0 files</span></h3>
         <div class="preview-grid" id="previewGrid">
-            <div style="color: #6b83b0; text-align: center; padding: 2rem;"><i class="fab fa-markdown" style="font-size: 2rem;"></i><p>Belum ada file</p></div>
+            <div style="color: #6b83b0; text-align: center; padding: 2rem;"><i class="fas fa-download" style="font-size: 2rem;"></i><p>Belum ada file</p></div>
         </div>
     </div>
 
@@ -425,7 +460,7 @@
     </div>
 
     <div class="footer">
-        <i class="fas fa-gamepad" style="color:#3b82f6;"></i> GAME MARKDOWN GENERATOR · Data dari RAWG API · Link ke classroom.wiki/game.php/{id}
+        <i class="fas fa-download" style="color:#10b981;"></i> DOWNLOAD GAME MARKDOWN GENERATOR · Premium Article untuk Download Game PC
     </div>
 </div>
 
@@ -435,6 +470,7 @@
     // DOM Elements
     const apiKeyInput = document.getElementById('apiKey');
     const gameIdsTextarea = document.getElementById('gameIds');
+    const landingUrlInput = document.getElementById('landingUrl');
     const titleTemplatesArea = document.getElementById('titleTemplates');
     const filesPerZipInput = document.getElementById('filesPerZip');
     const txtFileInput = document.getElementById('txtFileInput');
@@ -456,9 +492,6 @@
     let zipResults = [];
     let isGenerating = false;
 
-    // Base URL untuk landing page
-    const BASE_GAME_URL = 'https://classroom.wiki/game.php/';
-
     function log(msg, type = 'info') {
         const div = document.createElement('div');
         div.innerHTML = `[${new Date().toLocaleTimeString()}] ${msg}`;
@@ -469,19 +502,13 @@
 
     function getTitleTemplates() {
         const t = titleTemplatesArea.value.trim();
-        if (!t) return ['{TITLE} ({YEAR}) - Mainkan Online Gratis'];
+        if (!t) return ['Download {TITLE} ({YEAR}) PC Game Full Version Free'];
         return t.split('|').map(x => x.trim()).filter(x => x);
     }
 
     function getRandomTitle(templates, title, year) {
-        if (!templates.length) return `${title} (${year}) - Mainkan Online Gratis`;
+        if (!templates.length) return `Download ${title} (${year}) PC Game Free`;
         return templates[Math.floor(Math.random() * templates.length)].replace(/{TITLE}/g, title).replace(/{YEAR}/g, year);
-    }
-
-    function createSlug(title) {
-        const code = Math.random().toString(36).substring(2, 8);
-        const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').substring(0, 40);
-        return `${code}-${slug}`;
     }
 
     // Fetch game detail dari RAWG API
@@ -492,160 +519,243 @@
         return await response.json();
     }
 
-    // Generate Markdown untuk Game (Link ke classroom.wiki)
-    function generateGameMarkdown(game, seoTitle, gameId) {
+    function getDownloadUrl(landingBaseUrl, gameId) {
+        const base = landingBaseUrl.replace(/\/$/, '');
+        return `${base}/${gameId}`;
+    }
+
+    // Generate Premium Markdown untuk Download Game
+    function generateGameMarkdown(game, seoTitle, downloadUrl, gameId) {
         const year = game.released ? game.released.slice(0,4) : '2024';
-        const playUrl = `${BASE_GAME_URL}${gameId}`;
-        
-        const backgroundImage = game.background_image || 'https://via.placeholder.com/800x400/1e293b/ffffff?text=Game+Background';
+        const backgroundImage = game.background_image || 'https://placehold.co/800x400/1e293b/ffffff?text=' + encodeURIComponent(game.name);
         const rating = game.rating || 0;
         const ratingStars = '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating));
+        const ratingCount = game.ratings_count?.toLocaleString() || '0';
         
         const genres = game.genres?.map(g => g.name).join(', ') || 'Action';
         const platforms = game.platforms?.map(p => p.platform.name).join(', ') || 'PC';
         const developer = game.developers?.[0]?.name || 'Unknown';
         const publisher = game.publishers?.[0]?.name || 'Unknown';
+        const metacritic = game.metacritic || 'N/A';
+        const playtime = game.playtime || 50;
         
-        let description = game.description_raw || game.description || `${game.name} is an amazing game that you can play online. Experience thrilling gameplay, stunning graphics, and an immersive story.`;
-        description = description.substring(0, 500);
+        let description = game.description_raw || game.description;
+        if (!description || description.length < 100) {
+            description = `${game.name} is an amazing ${genres} game developed by ${developer} and published by ${publisher}. Experience thrilling gameplay, stunning graphics, and an immersive story in this award-winning title. Download now and join millions of players worldwide!`;
+        }
+        description = description.substring(0, 800);
         
         return `# ${seoTitle}
 
 <div align="center">
 
-<img src="${backgroundImage}" alt="${game.name}" width="250" style="border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+<img src="${backgroundImage}" alt="${game.name}" width="300" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
 
-</div>
+<br><br>
 
-<div align="center">
+# ${game.name}
 
-<h2>${game.name} (${year})</h2>
+**${year} · ${genres} · ${platforms}**
 
-</div>
-
-<div align="center">
-
-| **🎮 Platform** | **🎯 Genre** | **📅 Release** | **⭐ Rating** |
-|:---:|:---:|:---:|:---:|
-| ${platforms} | ${genres} | ${year} | ${ratingStars} (${rating}/5) |
+${ratingStars} **${rating}/5** (${ratingCount} reviews) | 🎯 Metacritic: **${metacritic}**
 
 </div>
 
 ---
 
-## 📖 About ${game.name}
+## 📥 Download ${game.name} PC Game
 
-<div style="background: #0f172a; padding: 16px; border-radius: 12px;">
+<div align="center">
 
-${description}...
+**Full Version | Pre-Installed | No Password | Direct Download**
+
+<a href="${downloadUrl}" target="_blank" rel="nofollow" style="display: inline-block; background: linear-gradient(135deg, #10b981, #059669); padding: 14px 32px; border-radius: 50px; color: white; font-weight: 700; text-decoration: none; font-size: 18px; margin: 20px 0; box-shadow: 0 5px 15px rgba(16,185,129,0.3);">
+<i class="fas fa-download"></i> DOWNLOAD NOW
+</a>
+
+**File Size:** ≈ ${playtime > 0 ? playtime + ' GB' : 'Varies'} | **Version:** Complete Edition + All DLC
 
 </div>
 
 ---
 
-## 🎮 Game Details
+## 🎮 About The Game
 
-| Attribute | Information |
+${description}
+
+---
+
+## 🖼️ Game Information
+
+| Attribute | Details |
 |:---|:---|
-| **Title** | ${game.name} |
-| **Genre** | ${genres} |
-| **Platform** | ${platforms} |
+| **Full Title** | ${game.name} |
+| **Release Date** | ${game.released || 'TBA'} |
 | **Developer** | ${developer} |
 | **Publisher** | ${publisher} |
-| **Release Date** | ${game.released || 'TBA'} |
+| **Game Modes** | ${game.tags?.filter(t => t.language === 'eng').slice(0,4).map(t => t.name).join(', ') || 'Single-player, Multiplayer'} |
+| **Platform** | ${platforms} |
+| **Genre** | ${genres} |
+| **Metacritic Score** | ${metacritic} |
 | **RAWG Rating** | ${rating}/5 |
 
 ---
 
-## 🕹️ Play ${game.name} Online
+## 💻 System Requirements
 
-<div align="center">
+### Minimum Requirements
+| Component | Minimum |
+|:---|:---|
+| **OS** | Windows 10 64-bit |
+| **Processor** | Intel Core i5-2500K / AMD FX-6300 |
+| **Memory** | 8 GB RAM |
+| **Graphics** | NVIDIA GeForce GTX 660 / AMD Radeon HD 7870 |
+| **DirectX** | Version 11 |
+| **Storage** | ${playtime} GB available space |
+| **Sound** | DirectX compatible sound card |
 
-<a href="${playUrl}" target="_blank" rel="nofollow">
-<img src="https://imagdb.pages.dev/button1.jpg" alt="Play Now" width="35%" style="border-radius: 12px;">
-</a>
-
-</div>
-
-> ℹ️ Click the button above to play ${game.name} online. No download required!
+### Recommended Requirements
+| Component | Recommended |
+|:---|:---|
+| **OS** | Windows 10/11 64-bit |
+| **Processor** | Intel Core i7-4770K / AMD Ryzen 5 1500X |
+| **Memory** | 16 GB RAM |
+| **Graphics** | NVIDIA GeForce GTX 1060 / AMD Radeon RX 580 |
+| **DirectX** | Version 12 |
+| **Storage** | ${playtime} GB SSD (recommended) |
+| **Sound** | DirectX compatible sound card |
 
 ---
 
-## ✨ Key Features
+## 🔑 Key Features
 
-- 🎮 Play directly in your browser - no download needed
-- 🔓 100% Unblocked - works anywhere
-- ⚡ Fast loading and smooth gameplay
-- 🕹️ Easy to learn, hard to master mechanics
-- 🌐 Compatible with all modern browsers
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+
+✅ **Full Game** - Complete version with all content
+
+✅ **Pre-Installed** - No installation required, just extract and play
+
+✅ **All DLC Included** - All downloadable content included
+
+✅ **Multiplayer Support** - Play with friends online
+
+✅ **Free Updates** - Get the latest patches automatically
+
+✅ **No Password** - Direct download, no archive password
+
+✅ **Virus Free** - Scanned with multiple antivirus engines
+
+✅ **Fast Download** - High-speed direct download links
+
+</div>
+
+---
+
+## 📸 Screenshots
+
+> *Actual in-game screenshots. Visuals may vary based on system specifications.*
 
 ---
 
 ## ❓ Frequently Asked Questions
 
-<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">
+<details>
+<summary><strong>❓ Is this game free to download?</strong></summary>
 
-**❓ Is ${game.name} free to play?**
+Yes, ${game.name} is completely free to download from our website. No hidden fees, no credit card required.
+</details>
 
-Yes, ${game.name} is completely free to play!
+<details>
+<summary><strong>❓ Is this the full version of the game?</strong></summary>
+
+Absolutely! We provide the complete full version of ${game.name} including all updates, patches, and DLCs.
+</details>
+
+<details>
+<summary><strong>❓ Do I need to install any additional software?</strong></summary>
+
+No additional software or launcher is required. The game is pre-installed and ready to play after extraction.
+</details>
+
+<details>
+<summary><strong>❓ Is this game safe from viruses?</strong></summary>
+
+Yes, all files are scanned daily with multiple antivirus engines (VirusTotal, Kaspersky, McAfee) to ensure 100% safety.
+</details>
+
+<details>
+<summary><strong>❓ How to install and play ${game.name}?</strong></summary>
+
+1. Click the download button above
+2. Extract the downloaded .zip or .rar file using WinRAR or 7-Zip
+3. Run the executable file (.exe) in the extracted folder
+4. Enjoy the game!
+</details>
+
+<details>
+<summary><strong>❓ Why is the download speed slow?</strong></summary>
+
+Download speed depends on your internet connection. We recommend using a download manager for faster speeds.
+</details>
+
+---
+
+## ⭐ Player Testimonials
+
+<div style="background: #1e293b; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #fbbf24;">
+
+**⭐⭐⭐⭐⭐ · Alex M.**
+> "Download worked flawlessly! The game runs perfectly on my PC. No crashes, no errors. Highly recommend this site!"
 
 </div>
 
-<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">
+<div style="background: #1e293b; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #fbbf24;">
 
-**❓ Do I need to download anything?**
-
-No download required! Just click the play button and start playing.
+**⭐⭐⭐⭐⭐ · Jamie L.**
+> "Best download site for PC games. Fast speed, no surveys, and the game is complete with all DLC. Will download more games from here!"
 
 </div>
 
-<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">
+<div style="background: #1e293b; padding: 15px; border-radius: 12px; margin: 10px 0; border-left: 4px solid #fbbf24;">
 
-**❓ Can I play this at school/work?**
-
-Yes! This game is unblocked and works on most school/work networks.
+**⭐⭐⭐⭐½ · Taylor K.**
+> "Amazing game! The download was quick and installation was straightforward. Works on Windows 11 without any issues."
 
 </div>
 
 ---
 
-## ⭐ Player Reviews
+## 🚀 Why Download From Us?
 
-<div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">
-**Alex M.** ⭐⭐⭐⭐⭐
-
-"Best game ever! I play it every day at school."
-</div>
-
-<div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">
-**Jamie L.** ⭐⭐⭐⭐½
-
-"Really fun game, great graphics and smooth controls."
-</div>
-
-<div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">
-**Taylor K.** ⭐⭐⭐⭐⭐
-
-"Works perfectly on my school computer! Highly recommended."
-</div>
+| Advantage | Description |
+|:---|:---|
+| **🆓 Free** | No payment required for any game |
+| **⚡ Fast Speed** | High-speed direct download servers |
+| **🔒 Safe** | 100% virus-free files |
+| **📦 Complete** | Full game + all DLCs included |
+| **🔄 Updated** | Latest version always available |
+| **💬 Support** | 24/7 customer support |
 
 ---
 
 <div align="center">
 
-**${game.name} - Play Unblocked Online Free | ${genres} Game | Browser Game**
+**Download ${game.name} PC Game Free | Full Version + All DLC | Direct Download Link**
+
+*${new Date().getFullYear()} · All trademarks belong to their respective owners*
 
 </div>`;
     }
 
-    async function generateGameFile(gameId, apiKey, titleTemplates) {
+    async function generateGameFile(gameId, apiKey, landingBaseUrl, titleTemplates) {
         try {
             const game = await fetchGameDetail(apiKey, gameId);
             const year = game.released ? game.released.slice(0,4) : '2024';
             const seoTitle = getRandomTitle(titleTemplates, game.name, year);
-            const markdown = generateGameMarkdown(game, seoTitle, gameId);
+            const downloadUrl = getDownloadUrl(landingBaseUrl, gameId);
+            const markdown = generateGameMarkdown(game, seoTitle, downloadUrl, gameId);
             
-            // Gunakan ID sebagai nama file agar konsisten dengan URL
+            // Gunakan ID sebagai nama file
             const filename = `${gameId}.md`;
             
             return {
@@ -719,14 +829,14 @@ Yes! This game is unblocked and works on most school/work networks.
     function updatePreview() {
         resultCountSpan.innerText = `${generatedFiles.length} files`;
         if (!generatedFiles.length) {
-            previewGrid.innerHTML = '<div style="text-align:center;padding:2rem;"><i class="fab fa-markdown" style="font-size: 2rem;"></i><p>Belum ada file</p></div>';
+            previewGrid.innerHTML = '<div style="text-align:center;padding:2rem;"><i class="fas fa-download" style="font-size: 2rem;"></i><p>Belum ada file</p></div>';
             return;
         }
         previewGrid.innerHTML = generatedFiles.slice(0, 30).map(f => `
             <div class="file-card">
                 <div class="file-info">
                     <div class="file-title">${escapeHtml(f.filename)}</div>
-                    <div class="file-meta">${f.title} | Link: ${BASE_GAME_URL}${f.gameId}</div>
+                    <div class="file-meta">${f.title} | Download Link: ${getDownloadUrl(landingUrlInput.value, f.gameId)}</div>
                 </div>
             </div>
         `).join('');
@@ -780,6 +890,9 @@ Yes! This game is unblocked and works on most school/work networks.
         const apiKey = apiKeyInput.value.trim();
         if (!apiKey) { log('❌ Masukkan RAWG API Key!', 'error'); return; }
 
+        const landingBaseUrl = landingUrlInput.value.trim();
+        if (!landingBaseUrl) { log('❌ Masukkan Download Page URL!', 'error'); return; }
+
         const titleTemplates = getTitleTemplates();
         const filesPerZip = parseInt(filesPerZipInput.value) || 50;
 
@@ -801,7 +914,8 @@ Yes! This game is unblocked and works on most school/work networks.
         downloadAllZipBtn.disabled = true;
 
         log(`🚀 Generate markdown untuk ${uniqueIds.length} game...`);
-        log(`🔗 Link download akan mengarah ke: ${BASE_GAME_URL}{id}`);
+        log(`🔗 Download URL: ${landingBaseUrl}/{id}`);
+        log(`📝 Template SEO: ${titleTemplates.length} template tersedia`);
         isGenerating = true;
         generateBtn.disabled = true;
         generateBtn.innerHTML = '<span class="loading"></span> Generating...';
@@ -811,12 +925,12 @@ Yes! This game is unblocked and works on most school/work networks.
             const gameId = uniqueIds[i];
             log(`⏳ [${i+1}/${uniqueIds.length}] Game ID ${gameId}...`);
 
-            const result = await generateGameFile(gameId, apiKey, titleTemplates);
+            const result = await generateGameFile(gameId, apiKey, landingBaseUrl, titleTemplates);
 
             if (result) {
                 generatedFiles.push(result);
                 successCount++;
-                log(`✅ ${result.title} -> ${result.filename} (link: ${BASE_GAME_URL}${gameId})`, 'success');
+                log(`✅ ${result.title} -> ${result.filename}`, 'success');
             }
 
             const percent = Math.round(((i + 1) / uniqueIds.length) * 100);
@@ -834,24 +948,24 @@ Yes! This game is unblocked and works on most school/work networks.
         if (successCount > 0) {
             const folders = splitFilesIntoFolders(generatedFiles, filesPerZip);
             folderCountSpan.innerText = folders.length;
-            zipResults = await createZipsFromFolders(folders, 'game_markdown');
+            zipResults = await createZipsFromFolders(folders, 'download_games');
             updateDownloadButtons(zipResults);
             downloadAllZipBtn.disabled = false;
         }
 
         isGenerating = false;
         generateBtn.disabled = false;
-        generateBtn.innerHTML = '<i class="fab fa-markdown"></i> Generate Markdown';
+        generateBtn.innerHTML = '<i class="fas fa-download"></i> Generate Markdown';
     }
 
     generateBtn.addEventListener('click', bulkGenerate);
     downloadAllZipBtn.addEventListener('click', () => { if (zipResults.length) downloadAllZips(zipResults); });
     clearBtn.addEventListener('click', clearResults);
 
-    log('✅ GAME MARKDOWN GENERATOR siap digunakan!');
+    log('✅ DOWNLOAD GAME MARKDOWN GENERATOR siap digunakan!');
     log('📚 Data dari RAWG API (20.000 request/bulan)');
-    log('🎮 Generate markdown dengan link ke: https://classroom.wiki/game.php/{id}');
-    log('📁 Nama file menggunakan ID (contoh: 5285.md) agar konsisten dengan URL');
+    log('💾 Artikel premium fokus Download Game PC Full Version');
+    log('🔗 Link download: {url}/{id}');
 })();
 </script>
 </body>

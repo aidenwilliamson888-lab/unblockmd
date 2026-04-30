@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 RAWG ID SCRAPER · Massal ID Game Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: radial-gradient(circle at 20% 30%, #1a1f35, #0a0c1a);
+            font-family: 'Inter', sans-serif;
+            color: #f0f4ff;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 20s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-5%, 5%) scale(1.05); }
+        }
+        .container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
+        
+        .hero-header {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 2rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #a5d8ff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .hero-title i {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-badge {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0.8rem;
+        }
+        .badge {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 100px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            backdrop-filter: blur(4px);
+            color: #b5d0ff;
+        }
+        
+        .control-panel {
+            background: rgba(18, 25, 45, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .input-group label {
+            color: #9bb5ff;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .input-group label i { color: #3b82f6; }
+        .input-group input, .input-group select {
+            background: rgba(10, 15, 30, 0.7);
+            border: 1px solid #2a3a60;
+            border-radius: 0.8rem;
+            padding: 0.6rem 1rem;
+            font-size: 0.85rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .api-section {
+            grid-column: 1 / -1;
+            background: rgba(20, 30, 55, 0.6);
+            border-radius: 1rem;
+            padding: 0.8rem;
+            border: 1px solid #f59e0b;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .api-section label {
+            color: #f59e0b;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+        .api-section input {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(10, 15, 30, 0.7);
+            border: 1px solid #f59e0b;
+            border-radius: 0.6rem;
+            padding: 0.4rem 0.6rem;
+            color: white;
+            font-family: monospace;
+        }
+        
+        .filter-row {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+        .filter-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .genre-grid {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .genre-btn {
+            background: rgba(30, 40, 65, 0.8);
+            border: 1px solid #3d5a8c;
+            border-radius: 2rem;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
+            color: #b5d0ff;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .genre-btn:hover, .genre-btn.active { background: #3b82f6; border-color: #3b82f6; color: white; }
+        
+        .button-group {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            grid-column: 1 / -1;
+            margin-top: 0.3rem;
+        }
+        .btn {
+            background: linear-gradient(135deg, #28344e, #1f2a40);
+            border: none;
+            border-radius: 2rem;
+            padding: 0.6rem 1.2rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: white;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn:hover { transform: translateY(-2px); border-color: #3b82f6; }
+        .btn-primary { background: linear-gradient(135deg, #1d4ed8, #3b82f6); border-color: #60a5fa; }
+        .btn-success { background: linear-gradient(135deg, #0f6e4a, #10b981); border-color: #34d399; }
+        .btn-info { background: linear-gradient(135deg, #6d28d9, #8b5cf6); border-color: #a78bfa; }
+        .btn-warning { background: linear-gradient(135deg, #b45309, #f59e0b); border-color: #fbbf24; }
+        
+        .progress-area {
+            background: rgba(18, 25, 45, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 1rem;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
+            color: #b5d0ff;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .progress-bar-container {
+            height: 6px;
+            background: rgba(10, 15, 30, 0.6);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+        .log-area {
+            background: rgba(8, 12, 25, 0.8);
+            border-radius: 0.8rem;
+            padding: 0.8rem;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.7rem;
+            border: 1px solid #2a3a60;
+            margin-top: 0.8rem;
+        }
+        .log-area div { padding: 0.2rem 0; border-bottom: 1px solid rgba(59, 130, 246, 0.1); }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .game-result {
+            background: rgba(22, 32, 55, 0.8);
+            border-radius: 0.8rem;
+            padding: 0.8rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .game-info { flex: 1; }
+        .game-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 0.2rem; color: white; }
+        .game-id { font-size: 0.65rem; color: #4ade80; font-family: monospace; }
+        .copy-id-btn {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            border-radius: 20px;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.6rem;
+            cursor: pointer;
+        }
+        
+        .export-panel {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 0.8rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            align-items: center;
+        }
+        .id-output {
+            background: rgba(10, 15, 30, 0.8);
+            border-radius: 0.6rem;
+            padding: 0.5rem;
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #4ade80;
+            flex: 1;
+            max-height: 100px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.6s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #6b83b0;
+            padding: 1rem;
+            font-size: 0.7rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero-header">
+        <div class="hero-title">
+            <i class="fas fa-database"></i> RAWG ID SCRAPER
+        </div>
+        <div class="hero-badge">
+            <span class="badge"><i class="fas fa-gamepad"></i> Massal ID Game</span>
+            <span class="badge"><i class="fas fa-filter"></i> Filter Genre/Platform</span>
+            <span class="badge"><i class="fas fa-copy"></i> Copy ID</span>
+            <span class="badge"><i class="fas fa-file-export"></i> Export JSON/CSV</span>
+        </div>
+    </div>
+
+    <div class="control-panel">
+        <div class="api-section">
+            <label><i class="fas fa-key"></i> RAWG API Key</label>
+            <input type="text" id="apiKey" value="d0b9e52fcbfb4759b4f1efba469a6092" placeholder="Masukkan API Key RAWG">
+            <span style="color: #fbbf24; font-size: 0.65rem;">⚠️ 20.000 request/bulan</span>
+        </div>
+
+        <div class="filter-row">
+            <div class="filter-group">
+                <label><i class="fas fa-filter"></i> Platform</label>
+                <select id="platformSelect">
+                    <option value="">🌐 Semua Platform</option>
+                    <option value="1">💻 PC</option>
+                    <option value="2">🎮 PlayStation</option>
+                    <option value="3">🎮 Xbox</option>
+                    <option value="4">📱 iOS</option>
+                    <option value="5">📱 Android</option>
+                    <option value="6">🕹️ Nintendo Switch</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label><i class="fas fa-tag"></i> Genre</label>
+                <select id="genreSelect">
+                    <option value="">🎮 Semua Genre</option>
+                    <option value="action">Action</option>
+                    <option value="shooter">Shooter</option>
+                    <option value="strategy">Strategy</option>
+                    <option value="racing">Racing</option>
+                    <option value="sports">Sports</option>
+                    <option value="rpg">RPG</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="fighting">Fighting</option>
+                    <option value="horror">Horror</option>
+                    <option value="survival">Survival</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label><i class="fas fa-chart-line"></i> Urutkan</label>
+                <select id="orderSelect">
+                    <option value="-rating">⭐ Rating Tertinggi</option>
+                    <option value="-released">📅 Rilis Terbaru</option>
+                    <option value="-metacritic">🎯 Metacritic Tertinggi</option>
+                    <option value="name">🔤 Nama A-Z</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-hashtag"></i> Jumlah Game per Halaman</label>
+            <input type="number" id="pageSize" value="40" min="1" max="40">
+            <small>Maksimal 40 per request (hemat quota)</small>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-layer-group"></i> Jumlah Halaman (Page)</label>
+            <input type="number" id="pages" value="10" min="1" max="100">
+            <small>Total game = PageSize x Pages (maks 4000 ID per scrape)</small>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-search"></i> Search Keyword (Opsional)</label>
+            <input type="text" id="searchKeyword" placeholder="Cari game spesifik... (contoh: witcher)">
+            <small>Kosongkan untuk ambil semua game</small>
+        </div>
+
+        <div class="genre-grid">
+            <span style="color:#8ba3d9; font-size:0.7rem;">Quick Genre:</span>
+            <button class="genre-btn" data-genre="action">Action</button>
+            <button class="genre-btn" data-genre="shooter">Shooter</button>
+            <button class="genre-btn" data-genre="rpg">RPG</button>
+            <button class="genre-btn" data-genre="racing">Racing</button>
+            <button class="genre-btn" data-genre="strategy">Strategy</button>
+            <button class="genre-btn" data-genre="sports">Sports</button>
+        </div>
+
+        <div class="button-group">
+            <button class="btn btn-primary" id="scrapeBtn"><i class="fas fa-database"></i> Scrape ID Game</button>
+            <button class="btn btn-success" id="exportJsonBtn" disabled><i class="fas fa-file-code"></i> Export JSON</button>
+            <button class="btn btn-info" id="exportCsvBtn" disabled><i class="fas fa-file-csv"></i> Export CSV</button>
+            <button class="btn btn-warning" id="copyAllIdsBtn" disabled><i class="fas fa-copy"></i> Copy All IDs</button>
+            <button class="btn" id="clearBtn"><i class="fas fa-trash"></i> Clear</button>
+        </div>
+    </div>
+
+    <div class="progress-area">
+        <div class="progress-stats">
+            <span><i class="fas fa-chart-line"></i> Progress: <span id="progressPercent">0%</span></span>
+            <span><i class="fas fa-gamepad"></i> <span id="scrapedCount">0</span> game ditemukan</span>
+            <span><i class="fas fa-code-branch"></i> <span id="requestCount">0</span> request</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="log-area" id="logArea">
+            <div>⏳ Masukkan API Key dan klik Scrape ID Game...</div>
+        </div>
+    </div>
+
+    <div id="resultsPanel">
+        <h3><i class="fas fa-list"></i> Daftar ID Game <span id="resultCount" style="font-size:0.7rem;">0 ditemukan</span></h3>
+        <div class="results-grid" id="resultsGrid">
+            <div style="color: #6b83b0; text-align: center; padding: 2rem;"><i class="fas fa-database" style="font-size: 2rem;"></i><p>Belum ada data</p></div>
+        </div>
+    </div>
+
+    <div id="exportPanel" class="export-panel" style="display: none;">
+        <span><i class="fas fa-code"></i> IDs (siap copy ke generator):</span>
+        <div class="id-output" id="idOutput"></div>
+        <button class="btn btn-success" id="copyOutputBtn" style="padding: 0.3rem 0.8rem;"><i class="fas fa-copy"></i> Copy</button>
+    </div>
+
+    <div class="footer">
+        <i class="fas fa-database" style="color:#3b82f6;"></i> RAWG ID SCRAPER · Dapatkan ribuan ID game dari RAWG API
+    </div>
+</div>
+
+<script>
+(function() {
+    // DOM Elements
+    const apiKeyInput = document.getElementById('apiKey');
+    const platformSelect = document.getElementById('platformSelect');
+    const genreSelect = document.getElementById('genreSelect');
+    const orderSelect = document.getElementById('orderSelect');
+    const pageSizeInput = document.getElementById('pageSize');
+    const pagesInput = document.getElementById('pages');
+    const searchKeyword = document.getElementById('searchKeyword');
+    const scrapeBtn = document.getElementById('scrapeBtn');
+    const exportJsonBtn = document.getElementById('exportJsonBtn');
+    const exportCsvBtn = document.getElementById('exportCsvBtn');
+    const copyAllIdsBtn = document.getElementById('copyAllIdsBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyOutputBtn = document.getElementById('copyOutputBtn');
+    const logArea = document.getElementById('logArea');
+    const progressPercent = document.getElementById('progressPercent');
+    const progressFill = document.getElementById('progressFill');
+    const scrapedCountSpan = document.getElementById('scrapedCount');
+    const requestCountSpan = document.getElementById('requestCount');
+    const resultCountSpan = document.getElementById('resultCount');
+    const resultsGrid = document.getElementById('resultsGrid');
+    const exportPanel = document.getElementById('exportPanel');
+    const idOutput = document.getElementById('idOutput');
+
+    let scrapedGames = [];
+    let totalRequests = 0;
+
+    function log(msg, type = 'info') {
+        const div = document.createElement('div');
+        div.innerHTML = `[${new Date().toLocaleTimeString()}] ${msg}`;
+        div.style.color = type === 'error' ? '#f87171' : type === 'success' ? '#4ade80' : '#a5d8ff';
+        logArea.appendChild(div);
+        div.scrollIntoView();
+    }
+
+    function updateProgress(current, total) {
+        const percent = Math.round((current / total) * 100);
+        progressPercent.innerText = `${percent}%`;
+        progressFill.style.width = `${percent}%`;
+    }
+
+    // Fetch games dari RAWG API
+    async function fetchGamesFromRAWG(apiKey, platform, genre, order, pageSize, page, search) {
+        let url = `https://api.rawg.io/api/games?key=${apiKey}&page_size=${pageSize}&page=${page}&ordering=${order}`;
+        
+        if (platform && platform !== '') url += `&platforms=${platform}`;
+        if (genre && genre !== '') url += `&genres=${genre}`;
+        if (search && search.trim() !== '') url += `&search=${encodeURIComponent(search.trim())}`;
+        
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        return data;
+    }
+
+    async function scrapeGames() {
+        const apiKey = apiKeyInput.value.trim();
+        if (!apiKey) {
+            log('❌ Masukkan RAWG API Key!', 'error');
+            return;
+        }
+        
+        const platform = platformSelect.value;
+        const genre = genreSelect.value;
+        const order = orderSelect.value;
+        const pageSize = parseInt(pageSizeInput.value) || 40;
+        const totalPages = parseInt(pagesInput.value) || 10;
+        const search = searchKeyword.value;
+        
+        if (pageSize > 40) {
+            log('⚠️ PageSize maksimal 40, diset ke 40', 'warning');
+            pageSizeInput.value = 40;
+        }
+        
+        log(`🚀 Memulai scraping ID game...`);
+        log(`📊 Target: ${totalPages} halaman, ${pageSize} game/halaman = max ${totalPages * pageSize} game`);
+        if (search) log(`🔍 Filter search: "${search}"`);
+        if (genre) log(`🎮 Filter genre: ${genreSelect.options[genreSelect.selectedIndex]?.text}`);
+        if (platform) log(`💻 Filter platform: ${platformSelect.options[platformSelect.selectedIndex]?.text}`);
+        
+        scrapeBtn.disabled = true;
+        scrapeBtn.innerHTML = '<span class="loading"></span> Scraping...';
+        
+        scrapedGames = [];
+        totalRequests = 0;
+        updateResultsDisplay();
+        exportPanel.style.display = 'none';
+        exportJsonBtn.disabled = true;
+        exportCsvBtn.disabled = true;
+        copyAllIdsBtn.disabled = true;
+        
+        for (let page = 1; page <= totalPages; page++) {
+            log(`📡 Mengambil halaman ${page}/${totalPages}...`);
+            
+            try {
+                const data = await fetchGamesFromRAWG(apiKey, platform, genre, order, pageSize, page, search);
+                totalRequests++;
+                requestCountSpan.innerText = totalRequests;
+                
+                const games = data.results || [];
+                
+                for (const game of games) {
+                    scrapedGames.push({
+                        id: game.id,
+                        title: game.name,
+                        slug: game.slug,
+                        rating: game.rating,
+                        released: game.released,
+                        metacritic: game.metacritic
+                    });
+                }
+                
+                log(`✅ Halaman ${page}: ${games.length} game ditemukan (total: ${scrapedGames.length})`, 'success');
+                updateProgress(page, totalPages);
+                scrapedCountSpan.innerText = scrapedGames.length;
+                updateResultsDisplay();
+                
+                if (!data.next) {
+                    log(`📌 Tidak ada halaman berikutnya, berhenti di halaman ${page}`, 'info');
+                    break;
+                }
+                
+                // Delay biar ga kena rate limit
+                await new Promise(r => setTimeout(r, 300));
+                
+            } catch(e) {
+                log(`❌ Error halaman ${page}: ${e.message}`, 'error');
+                break;
+            }
+        }
+        
+        scrapeBtn.disabled = false;
+        scrapeBtn.innerHTML = '<i class="fas fa-database"></i> Scrape ID Game';
+        
+        log(`🎉 Selesai! Total ${scrapedGames.length} game berhasil discrape (${totalRequests} request API)`, 'success');
+        
+        if (scrapedGames.length > 0) {
+            exportJsonBtn.disabled = false;
+            exportCsvBtn.disabled = false;
+            copyAllIdsBtn.disabled = false;
+            updateExportPanel();
+        }
+    }
+    
+    function updateResultsDisplay() {
+        resultCountSpan.innerText = `${scrapedGames.length} ditemukan`;
+        
+        if (!scrapedGames.length) {
+            resultsGrid.innerHTML = '<div style="color: #6b83b0; text-align: center; padding: 2rem;"><i class="fas fa-database" style="font-size: 2rem;"></i><p>Belum ada data</p></div>';
+            return;
+        }
+        
+        resultsGrid.innerHTML = scrapedGames.slice(0, 50).map(game => `
+            <div class="game-result">
+                <div class="game-info">
+                    <div class="game-title">${escapeHtml(game.title)}</div>
+                    <div class="game-id">ID: ${game.id} | ⭐ ${game.rating} | ${game.released ? game.released.slice(0,4) : 'TBA'}</div>
+                </div>
+                <button class="copy-id-btn" onclick="copySpecificId('${game.id}')"><i class="fas fa-copy"></i> Copy</button>
+            </div>
+        `).join('');
+        
+        if (scrapedGames.length > 50) {
+            resultsGrid.innerHTML += `<div style="text-align:center; padding:0.5rem;">... dan ${scrapedGames.length-50} game lainnya (scroll hasil export)</div>`;
+        }
+    }
+    
+    function updateExportPanel() {
+        const idList = scrapedGames.map(g => g.id).join('\n');
+        idOutput.textContent = idList;
+        exportPanel.style.display = 'flex';
+    }
+    
+    function copySpecificId(id) {
+        navigator.clipboard.writeText(id.toString()).then(() => {
+            log(`📋 ID ${id} disalin`, 'success');
+        });
+    }
+    
+    function copyAllIds() {
+        const idList = scrapedGames.map(g => g.id).join('\n');
+        navigator.clipboard.writeText(idList).then(() => {
+            log(`📋 ${scrapedGames.length} ID disalin ke clipboard`, 'success');
+        });
+    }
+    
+    function exportToJSON() {
+        const data = scrapedGames.map(g => ({ id: g.id, title: g.title, slug: g.slug, rating: g.rating }));
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `rawg_ids_${new Date().toISOString().slice(0,19)}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        log(`📄 JSON berhasil diekspor (${scrapedGames.length} game)`, 'success');
+    }
+    
+    function exportToCSV() {
+        const headers = ['ID', 'Title', 'Slug', 'Rating', 'Released', 'Metacritic'];
+        const rows = scrapedGames.map(g => [
+            g.id,
+            `"${g.title.replace(/"/g, '""')}"`,
+            g.slug,
+            g.rating,
+            g.released || '',
+            g.metacritic || ''
+        ]);
+        const csvContent = [headers, ...rows].map(row => row.join(',')).join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `rawg_ids_${new Date().toISOString().slice(0,19)}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+        log(`📊 CSV berhasil diekspor (${scrapedGames.length} game)`, 'success');
+    }
+    
+    function clearResults() {
+        scrapedGames = [];
+        totalRequests = 0;
+        updateResultsDisplay();
+        exportPanel.style.display = 'none';
+        exportJsonBtn.disabled = true;
+        exportCsvBtn.disabled = true;
+        copyAllIdsBtn.disabled = true;
+        scrapedCountSpan.innerText = '0';
+        requestCountSpan.innerText = '0';
+        progressPercent.innerText = '0%';
+        progressFill.style.width = '0%';
+        log('🗑️ Hasil dibersihkan', 'info');
+    }
+    
+    function escapeHtml(s) {
+        if (!s) return '';
+        const div = document.createElement('div');
+        div.textContent = s;
+        return div.innerHTML;
+    }
+    
+    // Genre quick buttons
+    document.querySelectorAll('.genre-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const genre = btn.getAttribute('data-genre');
+            genreSelect.value = genre;
+            // highlight active
+            document.querySelectorAll('.genre-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+    
+    // Global functions
+    window.copySpecificId = copySpecificId;
+    
+    // Event listeners
+    scrapeBtn.addEventListener('click', scrapeGames);
+    exportJsonBtn.addEventListener('click', exportToJSON);
+    exportCsvBtn.addEventListener('click', exportToCSV);
+    copyAllIdsBtn.addEventListener('click', copyAllIds);
+    clearBtn.addEventListener('click', clearResults);
+    copyOutputBtn.addEventListener('click', () => {
+        const text = idOutput.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            log(`📋 ${scrapedGames.length} ID disalin!`, 'success');
+        });
+    });
+    
+    log('✅ RAWG ID SCRAPER siap digunakan!');
+    log('📚 Dapatkan ribuan ID game dari RAWG API (20.000 request/bulan)');
+    log('🎮 Scrape ID untuk digunakan di Game Landing Page Generator');
+})();
+</script>
+</body>
+</html>

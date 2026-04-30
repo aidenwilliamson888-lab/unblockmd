@@ -57,18 +57,8 @@
             gap: 1rem;
             flex-wrap: wrap;
         }
-        .hero-title i {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-badge {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 0.8rem;
-        }
+        .hero-title i { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-badge { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-top: 0.8rem; }
         .badge {
             background: rgba(59, 130, 246, 0.2);
             border: 1px solid rgba(59, 130, 246, 0.4);
@@ -82,7 +72,6 @@
             backdrop-filter: blur(4px);
             color: #b5d0ff;
         }
-        .badge i { color: #3b82f6; }
         
         .control-panel {
             background: rgba(18, 25, 45, 0.8);
@@ -95,11 +84,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1rem;
         }
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
+        .input-group { display: flex; flex-direction: column; gap: 0.4rem; }
         .input-group label {
             color: #9bb5ff;
             font-weight: 600;
@@ -111,7 +96,7 @@
             gap: 0.5rem;
         }
         .input-group label i { color: #3b82f6; }
-        .input-group select, .input-group input {
+        .input-group select, .input-group input, .input-group textarea {
             background: rgba(10, 15, 30, 0.7);
             border: 1px solid #2a3a60;
             border-radius: 0.8rem;
@@ -120,20 +105,47 @@
             color: white;
             transition: all 0.3s ease;
         }
-        .input-group select:focus, .input-group input:focus {
+        .input-group select:focus, .input-group input:focus, .input-group textarea:focus {
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
         }
+        .input-group textarea { min-height: 80px; resize: vertical; font-family: monospace; }
         
-        .genre-grid, .source-grid {
+        .title-templates, .landing-page {
+            grid-column: 1 / -1;
+            background: rgba(20, 30, 55, 0.6);
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid #3d5a8c;
+        }
+        .title-templates label, .landing-page label {
+            color: #9bb5ff;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+        }
+        .example-box {
+            background: rgba(30, 40, 65, 0.8);
+            border: 1px solid #3b82f6;
+            border-radius: 1.5rem;
+            padding: 0.3rem 0.8rem;
+            color: #b5d0ff;
+            font-size: 0.7rem;
+            margin-top: 0.4rem;
+        }
+        
+        .genre-grid {
             grid-column: 1 / -1;
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-top: 0.5rem;
         }
-        .genre-btn, .source-btn {
+        .genre-btn {
             background: rgba(30, 40, 65, 0.8);
             border: 1px solid #3d5a8c;
             border-radius: 2rem;
@@ -143,8 +155,7 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .genre-btn:hover, .source-btn:hover { background: #3b82f6; border-color: #3b82f6; color: white; }
-        .genre-btn.active, .source-btn.active { background: #3b82f6; border-color: #3b82f6; color: white; }
+        .genre-btn:hover, .genre-btn.active { background: #3b82f6; border-color: #3b82f6; color: white; }
         
         .mode-switch {
             grid-column: 1 / -1;
@@ -162,6 +173,35 @@
             cursor: pointer;
             color: #b5d0ff;
             font-size: 0.8rem;
+        }
+        
+        .split-setting {
+            grid-column: 1 / -1;
+            background: rgba(20, 30, 55, 0.6);
+            border-radius: 1rem;
+            padding: 0.8rem;
+            border: 1px solid #10b981;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .split-setting label {
+            color: #10b981;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+        .split-setting input {
+            width: 80px;
+            background: rgba(10, 15, 30, 0.7);
+            border: 1px solid #10b981;
+            border-radius: 0.6rem;
+            padding: 0.4rem 0.6rem;
+            color: white;
+            text-align: center;
         }
         
         .button-group {
@@ -189,7 +229,6 @@
         .btn:hover { transform: translateY(-2px); border-color: #3b82f6; }
         .btn-primary { background: linear-gradient(135deg, #1d4ed8, #3b82f6); border-color: #60a5fa; }
         .btn-success { background: linear-gradient(135deg, #0f6e4a, #10b981); border-color: #34d399; }
-        .btn-info { background: linear-gradient(135deg, #6d28d9, #8b5cf6); border-color: #a78bfa; }
         .btn-warning { background: linear-gradient(135deg, #b45309, #f59e0b); border-color: #fbbf24; }
         
         .log-area {
@@ -223,13 +262,7 @@
             gap: 0.8rem;
         }
         .game-card:hover { transform: translateY(-2px); border-color: #3b82f6; }
-        .game-thumb {
-            width: 80px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 8px;
-            background: #1a2440;
-        }
+        .game-thumb { width: 80px; height: 60px; object-fit: cover; border-radius: 8px; background: #1a2440; }
         .game-info { flex: 1; }
         .game-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 0.2rem; color: white; }
         .game-meta { font-size: 0.65rem; color: #8ba3d9; margin: 0.2rem 0; }
@@ -255,9 +288,7 @@
             border-top-color: transparent;
             animation: spin 0.6s linear infinite;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
         .footer {
             margin-top: 1.5rem;
             text-align: center;
@@ -300,47 +331,13 @@
                 <option value="mmorpg">⚔️ MMORPG</option>
                 <option value="shooter">🔫 Shooter</option>
                 <option value="strategy">♟️ Strategy</option>
-                <option value="moba">🎯 MOBA</option>
                 <option value="racing">🏁 Racing</option>
                 <option value="sports">⚽ Sports</option>
-                <option value="social">💬 Social</option>
-                <option value="sandbox">🏗️ Sandbox</option>
-                <option value="open-world">🌍 Open World</option>
-                <option value="survival">🏕️ Survival</option>
-                <option value="pvp">⚔️ PvP</option>
-                <option value="pve">🤖 PvE</option>
-                <option value="pixel">🟦 Pixel</option>
-                <option value="voxel">🧊 Voxel</option>
-                <option value="zombie">🧟 Zombie</option>
-                <option value="turn-based">🔄 Turn-Based</option>
-                <option value="first-person">🎬 First-Person</option>
-                <option value="third-person">🎥 Third-Person</option>
-                <option value="top-down">⬇️ Top-Down</option>
-                <option value="tank">🛸 Tank</option>
-                <option value="space">🚀 Space</option>
-                <option value="sailing">⛵ Sailing</option>
-                <option value="side-scroller">📜 Side-Scroller</option>
-                <option value="superhero">🦸 Superhero</option>
-                <option value="permadeath">💀 Permadeath</option>
-                <option value="card">🃏 Card</option>
-                <option value="battle-royale">👑 Battle Royale</option>
-                <option value="mmo">🌐 MMO</option>
-                <option value="mmofps">🔫 MMOFPS</option>
-                <option value="mmotps">🎯 MMOTPS</option>
-                <option value="3d">3️⃣ 3D</option>
-                <option value="fantasy">🐉 Fantasy</option>
-                <option value="sci-fi">🛸 Sci-Fi</option>
-                <option value="fighting">🥊 Fighting</option>
-                <option value="action-rpg">⚡ Action RPG</option>
                 <option value="action">🎬 Action</option>
-                <option value="medieval">🏰 Medieval</option>
-                <option value="military">🪖 Military</option>
-                <option value="martial-arts">🥋 Martial Arts</option>
-                <option value="flight">✈️ Flight</option>
-                <option value="low-spec">💻 Low-Spec</option>
-                <option value="tower-defense">🗼 Tower Defense</option>
-                <option value="horror">👻 Horror</option>
-                <option value="mmorts">⚔️ MMORTS</option>
+                <option value="survival">🏕️ Survival</option>
+                <option value="zombie">🧟 Zombie</option>
+                <option value="fighting">🥊 Fighting</option>
+                <option value="battle-royale">👑 Battle Royale</option>
             </select>
         </div>
 
@@ -349,14 +346,31 @@
             <input type="number" id="maxResults" value="50" min="5" max="500" step="5">
         </div>
 
-        <div class="source-grid">
-            <span style="color:#8ba3d9; font-size:0.7rem;">Sumber Data:</span>
-            <button class="source-btn active" data-source="freetogame">🎮 FreeToGame API</button>
-            <button class="source-btn" data-source="ubg">🎲 UBG List (Demo)</button>
-            <button class="source-btn" data-source="slot">🎰 Slot Games (Demo)</button>
+        <!-- SEO Title Templates -->
+        <div class="title-templates">
+            <label><i class="fas fa-random"></i> SEO Title Template (pisahkan dengan | )</label>
+            <textarea id="titleTemplates" rows="2">{TITLE} ({YEAR}) - Mainkan Online Gratis Unblocked|{TITLE} ({YEAR}) - Game Unblocked | Bisa Dimainkan di Sekolah|✨ {TITLE} ({YEAR}) - Game Online Tanpa Download|🎮 {TITLE} ({YEAR}) - Main Gratis Tanpa Blokir</textarea>
+            <div class="example-box" id="templateExample">
+                <i class="fas fa-eye"></i> Contoh: "Shell Shockers (2024) - Mainkan Online Gratis Unblocked"
+            </div>
         </div>
 
-        <div class="genre-grid" id="genreGrid"></div>
+        <!-- Landing Page URL - LANGSUNG ke homepage, tanpa slug -->
+        <div class="landing-page">
+            <label><i class="fas fa-link"></i> Landing Page URL (tempat game dimainkan)</label>
+            <input type="text" id="landingPageUrl" value="https://example.com/" placeholder="https://domainmu.com/">
+            <small style="color: #8ba3d9;">▸ Link akan langsung mengarah ke URL ini (tanpa tambahan slug)</small>
+            <small style="color: #fbbf24;">▸ Contoh: https://gameku.com/</small>
+        </div>
+
+        <div class="genre-grid">
+            <span style="color:#8ba3d9; font-size:0.7rem;">Popular:</span>
+            <button class="genre-btn" data-genre="shooter">🔫 Shooter</button>
+            <button class="genre-btn" data-genre="strategy">♟️ Strategy</button>
+            <button class="genre-btn" data-genre="racing">🏁 Racing</button>
+            <button class="genre-btn" data-genre="action">🎬 Action</button>
+            <button class="genre-btn" data-genre="fighting">🥊 Fighting</button>
+        </div>
 
         <div class="mode-switch">
             <label>
@@ -366,9 +380,9 @@
             <span style="color: #fbbf24; font-size: 0.65rem;">⚠️ Aktifkan jika API error atau ingin test</span>
         </div>
 
-        <div class="split-setting" style="grid-column:1/-1; background:rgba(20,30,55,0.6); border-radius:1rem; padding:0.8rem; margin-top:0.5rem;">
+        <div class="split-setting">
             <label><i class="fas fa-folder-open"></i> File per Folder/ZIP:</label>
-            <input type="number" id="filesPerZip" value="50" min="1" max="500" step="1" style="width:80px; background:rgba(10,15,30,0.7); border:1px solid #10b981; border-radius:0.6rem; padding:0.3rem 0.6rem; color:white;">
+            <input type="number" id="filesPerZip" value="50" min="1" max="500" step="1">
             <span style="color: #8ba3d9; font-size: 0.7rem;">(Default 50 file per ZIP)</span>
         </div>
 
@@ -380,7 +394,7 @@
     </div>
 
     <div class="log-area" id="logArea">
-        <div>⏳ Pilih platform/genre dan klik Generate Markdown...</div>
+        <div>⏳ Pilih genre dan klik Generate Markdown...</div>
     </div>
 
     <div id="resultsPanel">
@@ -402,17 +416,18 @@
     </div>
 
     <div class="footer">
-        <i class="fas fa-gamepad" style="color:#3b82f6;"></i> UNBLOCKED GAMES GENERATOR · Data dari FreeToGame API + UBG List
+        <i class="fas fa-gamepad" style="color:#3b82f6;"></i> UNBLOCKED GAMES GENERATOR · SEO Title Custom · Landing Page Langsung ke Homepage
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 (function() {
-    // DOM Elements
     const platformSelect = document.getElementById('platformSelect');
     const genreSelect = document.getElementById('genreSelect');
     const maxResultsInput = document.getElementById('maxResults');
+    const titleTemplatesArea = document.getElementById('titleTemplates');
+    const landingPageUrl = document.getElementById('landingPageUrl');
     const demoModeCheckbox = document.getElementById('demoModeCheckbox');
     const filesPerZipInput = document.getElementById('filesPerZip');
     const generateBtn = document.getElementById('generateBtn');
@@ -426,7 +441,6 @@
 
     let generatedFiles = [];
     let zipResults = [];
-    let currentSource = 'freetogame';
 
     function log(message, type = 'info') {
         const entry = document.createElement('div');
@@ -436,40 +450,32 @@
         logArea.scrollTop = logArea.scrollHeight;
     }
 
-    // Source buttons
-    document.querySelectorAll('.source-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.source-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentSource = btn.getAttribute('data-source');
-            log(`📡 Sumber data diubah ke: ${btn.textContent}`, 'info');
-        });
-    });
+    function getTitleTemplates() {
+        const text = titleTemplatesArea.value.trim();
+        if (!text) return ['{TITLE} ({YEAR}) - Mainkan Online Gratis Unblocked'];
+        return text.split('|').map(t => t.trim()).filter(t => t.length);
+    }
 
-    // ========== API FETCH FUNCTIONS ==========
-    
-    // FreeToGame API [citation:5]
+    function getRandomTitle(templates, title, year) {
+        if (!templates.length) return `${title} (${year}) - Play Unblocked`;
+        const selected = templates[Math.floor(Math.random() * templates.length)];
+        return selected.replace(/{TITLE}/g, title).replace(/{YEAR}/g, year);
+    }
+
+    // Fetch games from FreeToGame API
     async function fetchGamesFromFreeToGame(platform, genre, limit) {
         let url = 'https://www.freetogame.com/api/games';
-        
         const params = [];
         if (platform && platform !== 'all') params.push(`platform=${platform}`);
         if (genre && genre !== 'all') params.push(`category=${genre}`);
-        
         if (params.length) url += `?${params.join('&')}`;
         
         log(`🌐 Fetch dari FreeToGame API...`, 'info');
         const response = await fetch(url);
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        
         let games = await response.json();
         
-        // Filter by platform if needed
-        if (platform === 'browser') {
-            games = games.filter(g => g.platform === 'Browser');
-        }
-        
-        // Limit results
+        if (platform === 'browser') games = games.filter(g => g.platform === 'Browser');
         games = games.slice(0, limit);
         
         return games.map(game => ({
@@ -487,172 +493,50 @@
         }));
     }
 
-    // Generate dummy games (UBG style) [citation:1][citation:3][citation:4]
+    // Generate dummy games
     function generateDummyGames(platform, genre, count) {
         const gameTitles = {
             shooter: ['Shell Shockers', '1v1.LOL', 'Krunker', 'Zombs Royale', 'Bullet Force'],
             strategy: ['Bloons TD', 'Kingdom Rush', 'Age of War', 'Tower Defense', 'Chess'],
             racing: ['Moto X3M', 'Madalin Stunt Cars', 'Drift Hunters', 'Burnout', 'Highway Racer'],
-            sports: ['Basketball Stars', 'Football Legends', 'Baseball Pro', 'Tennis Clash', 'Soccer Skills'],
             action: ['Stickman Legacy', 'Fireboy and Watergirl', 'Run 3', 'Happy Wheels', 'Rooftop Snipers'],
-            mmorpg: ['RuneScape', 'AdventureQuest', 'DragonFable', 'MechQuest', 'AQ Worlds'],
-            fighting: ['Street Fighter', 'Mortal Kombat', 'Super Smash Flash', 'Punch Box', 'Stick War'],
-            puzzle: ['2048', 'Sudoku', 'Crossword', 'Match 3', 'Block Puzzle']
+            fighting: ['Street Fighter', 'Mortal Kombat', 'Super Smash Flash', 'Punch Box', 'Stick War']
         };
-        
         const categoryGames = gameTitles[genre] || gameTitles.action;
         const games = [];
-        const publishers = ['Cool Math Games', 'Unblocked Games 66', 'Unblocked Games 77', 'UBG Games', 'Classroom 6x', 'GitHub Pages'];
-        const descriptions = [
-            'Play this exciting unblocked game anywhere! Perfect for school or work.',
-            'One of the most popular unblocked games online. No download required.',
-            'Amazing gameplay with smooth controls. Play now for free!',
-            'Challenge your friends or play solo in this addictive game.',
-            '100% unblocked, works on Chrome, Edge, and Firefox.'
-        ];
+        const descriptions = ['Play this exciting unblocked game anywhere! Perfect for school or work. Amazing gameplay with smooth controls. No download required.'];
         
         for (let i = 0; i < count; i++) {
-            const titleIdx = i % categoryGames.length;
-            const title = categoryGames[titleIdx] + (i >= categoryGames.length ? ` ${Math.floor(i / categoryGames.length) + 1}` : '');
+            const title = categoryGames[i % categoryGames.length] + (i >= categoryGames.length ? ` ${Math.floor(i / categoryGames.length) + 1}` : '');
             games.push({
                 id: 1000 + i,
                 title: title,
-                genre: genre,
+                genre: genre || 'action',
                 platform: platform === 'browser' ? 'Browser' : 'PC',
-                publisher: publishers[Math.floor(Math.random() * publishers.length)],
+                publisher: 'Unblocked Games',
                 developer: 'Various',
-                releaseDate: (2015 + Math.floor(Math.random() * 10)).toString(),
-                description: descriptions[Math.floor(Math.random() * descriptions.length)],
-                thumbnail: null,
+                releaseDate: (2020 + Math.floor(Math.random() * 5)).toString(),
+                description: descriptions[0],
+                thumbnail: `https://picsum.photos/200/150?random=${i}`,
                 gameUrl: `https://example.com/games/${title.toLowerCase().replace(/ /g, '-')}`,
-                source: 'UBG (Demo)',
-                isDummy: true
+                source: 'Demo'
             });
         }
         return games;
     }
 
-    // Generate markdown untuk game
-    function generateGameMarkdown(game, seoTitle) {
-        const year = game.releaseDate ? game.releaseDate.slice(0,4) : new Date().getFullYear();
-        
-        let md = `# ${seoTitle}\n\n`;
-        
-        // Thumbnail if available
-        if (game.thumbnail) {
-            md += `<div align="center">\n\n`;
-            md += `<img src="${game.thumbnail}" alt="${game.title}" width="200" style="border-radius: 12px;">\n\n`;
-            md += `</div>\n\n`;
+    async function fetchGames(platform, genre, limit, demoMode) {
+        if (demoMode) {
+            log(`📝 Mode Demo: Mengenerate ${limit} game dummy...`, 'info');
+            return generateDummyGames(platform, genre, limit);
         }
-        
-        // Title
-        md += `<div align="center">\n\n`;
-        md += `<h2>${game.title} (${year})</h2>\n\n`;
-        md += `</div>\n\n`;
-        
-        // Info table
-        md += `<div align="center">\n\n`;
-        md += `| **🎮 Platform** | **🎯 Genre** | **📅 Release** | **🏢 Publisher** |\n`;
-        md += `|:---:|:---:|:---:|:---:|\n`;
-        md += `| ${game.platform} | ${game.genre} | ${year} | ${game.publisher || 'Unknown'} |\n\n`;
-        md += `</div>\n\n`;
-        
-        md += `---\n\n`;
-        
-        // Description
-        md += `## 🎮 About the Game\n\n`;
-        md += `<div style="background: #0f172a; padding: 16px; border-radius: 12px;">\n\n`;
-        md += `${game.description || 'An exciting unblocked game that you can play anywhere, anytime. No downloads required, just open your browser and start playing!'}\n\n`;
-        md += `</div>\n\n`;
-        
-        md += `---\n\n`;
-        
-        // Game Details
-        md += `## 🎯 Game Details\n\n`;
-        md += `| Attribute | Information |\n`;
-        md += `|:---|:---|\n`;
-        md += `| **Title** | ${game.title} |\n`;
-        md += `| **Genre** | ${game.genre} |\n`;
-        md += `| **Platform** | ${game.platform} |\n`;
-        md += `| **Developer** | ${game.developer || 'Unknown'} |\n`;
-        md += `| **Publisher** | ${game.publisher || 'Unknown'} |\n`;
-        md += `| **Release Year** | ${year} |\n\n`;
-        
-        md += `---\n\n`;
-        
-        // Play Button (Safe - no download)
-        md += `## 🕹️ Play ${game.title}\n\n`;
-        md += `<div align="center">\n\n`;
-        md += `<a href="${game.gameUrl}" target="_blank" rel="nofollow">\n`;
-        md += `<img src="https://imagdb.pages.dev/button1.jpg" alt="Play Now" width="35%" style="border-radius: 12px;">\n`;
-        md += `</a>\n\n`;
-        md += `</div>\n\n`;
-        md += `> ℹ️ Click the button above to play ${game.title} online for free. No download required!\n\n`;
-        
-        md += `---\n\n`;
-        
-        // Game Review Article
-        md += `## 📖 ${game.title}: Complete Game Review\n\n`;
-        md += `${game.title} is one of the most popular unblocked games available online. With its ${game.genre} genre and engaging gameplay, players of all ages can enjoy this game.\n\n`;
-        md += `> "This game offers hours of entertainment with smooth controls and exciting challenges."\n\n`;
-        md += `The game features intuitive mechanics that make it easy to learn but hard to master. Whether you're at school, work, or home, ${game.title} is accessible anywhere.\n\n`;
-        md += `---\n\n`;
-        
-        // Features
-        md += `## ✨ Key Features\n\n`;
-        md += `<ul>\n`;
-        md += `<li>🎮 Play directly in your browser - no download needed</li>\n`;
-        md += `<li>🔓 100% Unblocked - works on school/work networks</li>\n`;
-        md += `<li>⚡ Fast loading and smooth gameplay</li>\n`;
-        md += `<li>🕹️ Easy to learn, hard to master mechanics</li>\n`;
-        md += `<li>🌐 Compatible with all modern browsers</li>\n`;
-        md += `</ul>\n\n`;
-        md += `---\n\n`;
-        
-        // How to Play
-        md += `## 🎯 How to Play\n\n`;
-        md += `${game.title} is easy to play:\n\n`;
-        md += `1. Click the play button above\n`;
-        md += `2. Wait for the game to load\n`;
-        md += `3. Use keyboard/mouse controls to play\n`;
-        md += `4. Enjoy and challenge your friends!\n\n`;
-        md += `---\n\n`;
-        
-        // Reviews
-        md += `## ⭐ Player Reviews\n\n`;
-        md += `<div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">\n`;
-        md += `**Alex M.** ⭐⭐⭐⭐⭐\n\n"Best unblocked game ever! I play it every day at school."\n</div>\n\n`;
-        md += `<div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">\n`;
-        md += `**Jamie L.** ⭐⭐⭐⭐½\n\n"Really fun game, great graphics and smooth controls."\n</div>\n\n`;
-        md += `<div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">\n`;
-        md += `**Taylor K.** ⭐⭐⭐⭐⭐\n\n"Works perfectly on my school Chromebook! Highly recommend."\n</div>\n\n`;
-        md += `---\n\n`;
-        
-        // FAQ
-        md += `## ❓ Frequently Asked Questions\n\n`;
-        md += `<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">\n`;
-        md += `**❓ Is this game free to play?**\n\nYes, ${game.title} is completely free to play!\n</div>\n\n`;
-        md += `<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">\n`;
-        md += `**❓ Do I need to download anything?**\n\nNo download required! Just click the play button and start playing.\n</div>\n\n`;
-        md += `<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">\n`;
-        md += `**❓ Can I play this at school/work?**\n\nYes! This game is unblocked and works on most school/work networks.\n</div>\n\n`;
-        md += `---\n\n`;
-        
-        // Quick Access
-        md += `## 🔗 Quick Access\n\n`;
-        md += `<div align="center">\n\n`;
-        md += `| **Platform** | **Genre** | **Source** |\n`;
-        md += `|:---:|:---:|:---:|\n`;
-        md += `| ${game.platform} | ${game.genre} | ${game.source} |\n\n`;
-        md += `</div>\n\n`;
-        
-        // Footer
-        md += `---\n\n`;
-        md += `<div align="center">\n\n`;
-        md += `**${game.title} - Play Unblocked Online Free | ${game.genre} Game | Browser Game**\n\n`;
-        md += `</div>\n`;
-        
-        return md;
+        try {
+            return await fetchGamesFromFreeToGame(platform, genre, limit);
+        } catch(e) {
+            log(`❌ Error: ${e.message}`, 'error');
+            log(`⚠️ Beralih ke mode demo...`, 'warning');
+            return generateDummyGames(platform, genre, limit);
+        }
     }
 
     function createSlug(title) {
@@ -661,36 +545,37 @@
         return `${uniqueCode}-${slugTitle}`;
     }
 
-    function getRandomTitle(title, year) {
-        const templates = [
-            `${title} (${year}) - Play Unblocked Online Free`,
-            `${title} - Unblocked Game | Play Now Free`,
-            `Play ${title} Online - No Download Required`,
-            `${title} Unblocked - Free Browser Game`,
-            `✨ ${title} (${year}) - Best Unblocked Game`
-        ];
-        return templates[Math.floor(Math.random() * templates.length)];
-    }
-
-    async function fetchGames(platform, genre, limit, demoMode) {
-        if (demoMode) {
-            log(`📝 Mode Demo: Mengenerate ${limit} game dummy...`, 'info');
-            return generateDummyGames(platform, genre, limit);
+    function generateGameMarkdown(game, seoTitle, landingBaseUrl) {
+        const year = game.releaseDate ? game.releaseDate.slice(0,4) : '2024';
+        // LANGSUNG ke landing page, tanpa slug
+        const playUrl = landingBaseUrl || game.gameUrl;
+        
+        let md = `# ${seoTitle}\n\n`;
+        
+        if (game.thumbnail) {
+            md += `<div align="center">\n\n<img src="${game.thumbnail}" alt="${game.title}" width="200" style="border-radius: 12px;">\n\n</div>\n\n`;
         }
         
-        try {
-            if (currentSource === 'freetogame') {
-                return await fetchGamesFromFreeToGame(platform, genre, limit);
-            } else {
-                // Fallback to demo for other sources
-                log(`⚠️ Sumber ${currentSource} dalam mode demo`, 'warning');
-                return generateDummyGames(platform, genre, limit);
-            }
-        } catch(e) {
-            log(`❌ Error: ${e.message}`, 'error');
-            log(`⚠️ Beralih ke mode demo...`, 'warning');
-            return generateDummyGames(platform, genre, limit);
-        }
+        md += `<div align="center">\n\n<h2>${game.title} (${year})</h2>\n\n</div>\n\n`;
+        md += `<div align="center">\n\n| **🎮 Platform** | **🎯 Genre** | **📅 Release** | **🏢 Publisher** |\n|:---:|:---:|:---:|:---:|\n| ${game.platform} | ${game.genre} | ${year} | ${game.publisher || 'Unknown'} |\n\n</div>\n\n`;
+        md += `---\n\n`;
+        md += `## 🎮 About the Game\n\n<div style="background: #0f172a; padding: 16px; border-radius: 12px;">\n\n${game.description || 'An exciting unblocked game that you can play anywhere, anytime. No downloads required, just open your browser and start playing!'}\n\n</div>\n\n`;
+        md += `---\n\n`;
+        md += `## 🎯 Game Details\n\n| Attribute | Information |\n|:---|:---|\n| **Title** | ${game.title} |\n| **Genre** | ${game.genre} |\n| **Platform** | ${game.platform} |\n| **Developer** | ${game.developer || 'Unknown'} |\n| **Publisher** | ${game.publisher || 'Unknown'} |\n| **Release Year** | ${year} |\n\n`;
+        md += `---\n\n`;
+        md += `## 🕹️ Play ${game.title}\n\n<div align="center">\n\n<a href="${playUrl}" target="_blank" rel="nofollow">\n<img src="https://imagdb.pages.dev/button1.jpg" alt="Play Now" width="35%" style="border-radius: 12px;">\n</a>\n\n</div>\n\n> ℹ️ Click the button above to play ${game.title} online for free. No download required!\n\n`;
+        md += `---\n\n`;
+        md += `## 📖 ${game.title}: Complete Game Review\n\n${game.title} is one of the most popular unblocked games available online. With its ${game.genre} genre and engaging gameplay, players of all ages can enjoy this game.\n\n> "This game offers hours of entertainment with smooth controls and exciting challenges."\n\nThe game features intuitive mechanics that make it easy to learn but hard to master. Whether you're at school, work, or home, ${game.title} is accessible anywhere.\n\n`;
+        md += `---\n\n`;
+        md += `## ✨ Key Features\n\n<ul>\n<li>🎮 Play directly in your browser - no download needed</li>\n<li>🔓 100% Unblocked - works on school/work networks</li>\n<li>⚡ Fast loading and smooth gameplay</li>\n<li>🕹️ Easy to learn, hard to master mechanics</li>\n<li>🌐 Compatible with all modern browsers</li>\n</ul>\n\n`;
+        md += `---\n\n`;
+        md += `## ⭐ Player Reviews\n\n<div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">\n**Alex M.** ⭐⭐⭐⭐⭐\n\n"Best unblocked game ever! I play it every day at school."\n</div>\n\n<div style="background: #1e293b; padding: 12px; border-radius: 10px; margin: 8px 0;">\n**Jamie L.** ⭐⭐⭐⭐½\n\n"Really fun game, great graphics and smooth controls."\n</div>\n\n`;
+        md += `---\n\n`;
+        md += `## ❓ Frequently Asked Questions\n\n<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">\n**❓ Is this game free to play?**\n\nYes, ${game.title} is completely free to play!\n</div>\n\n<div style="background: #0f172a; padding: 12px; border-radius: 10px; margin: 8px 0; border-left: 3px solid #3b82f6;">\n**❓ Do I need to download anything?**\n\nNo download required! Just click the play button and start playing.\n</div>\n\n`;
+        md += `---\n\n`;
+        md += `<div align="center">\n\n**${game.title} - Play Unblocked Online Free | ${game.genre} Game | Browser Game**\n\n</div>\n`;
+        
+        return md;
     }
 
     async function generateMarkdownFiles() {
@@ -699,11 +584,12 @@
         const limit = parseInt(maxResultsInput.value) || 50;
         const demoMode = demoModeCheckbox.checked;
         const filesPerZip = parseInt(filesPerZipInput.value) || 50;
+        const titleTemplates = getTitleTemplates();
+        const landingBaseUrl = landingPageUrl.value.trim();
         
-        const platformName = platformSelect.options[platformSelect.selectedIndex]?.text || platform;
         const genreName = genreSelect.options[genreSelect.selectedIndex]?.text || genre;
         
-        log(`🎲 Menggenerate markdown untuk game ${genreName} (${platformName})...`);
+        log(`🎲 Menggenerate markdown untuk game ${genreName}...`);
         
         generateBtn.disabled = true;
         generateBtn.innerHTML = '<span class="loading"></span> Generating...';
@@ -722,28 +608,25 @@
         for (const game of games) {
             const year = game.releaseDate ? game.releaseDate.slice(0,4) : '2024';
             const slug = createSlug(game.title);
-            const seoTitle = getRandomTitle(game.title, year);
-            const markdown = generateGameMarkdown(game, seoTitle);
+            const seoTitle = getRandomTitle(titleTemplates, game.title, year);
+            const markdown = generateGameMarkdown(game, seoTitle, landingBaseUrl);
             
             files.push({
                 filename: `${slug}.md`,
                 content: markdown,
                 title: game.title,
                 genre: game.genre,
-                source: game.source
+                thumbnail: game.thumbnail
             });
         }
         
         generatedFiles = files;
         updatePreview();
-        
         log(`✅ Berhasil generate ${files.length} file markdown!`, 'success');
         
-        // Create ZIPs
         const folders = splitFilesIntoFolders(generatedFiles, filesPerZip);
         zipResults = await createZipsFromFolders(folders, 'unblocked_games');
         updateDownloadButtons(zipResults);
-        
         downloadAllZipBtn.disabled = false;
     }
     
@@ -771,10 +654,7 @@
     }
     
     function updateDownloadButtons(zips) {
-        if (!zips.length) { 
-            exportPanel.style.display = 'none'; 
-            return; 
-        }
+        if (!zips.length) { exportPanel.style.display = 'none'; return; }
         exportPanel.style.display = 'flex';
         downloadButtonsList.innerHTML = '';
         zips.forEach(zip => {
@@ -808,50 +688,53 @@
     
     function updatePreview() {
         resultCountSpan.innerText = `${generatedFiles.length} files`;
-        
         if (!generatedFiles.length) {
             previewGrid.innerHTML = '<div style="color: #6b83b0; text-align: center; padding: 2rem;"><i class="fas fa-gamepad" style="font-size: 2rem;"></i><p>Tidak ada file</p></div>';
             return;
         }
-        
         previewGrid.innerHTML = generatedFiles.slice(0, 30).map(f => `
             <div class="game-card">
                 <div class="game-info">
                     <div class="game-title">${escapeHtml(f.filename.substring(0, 40))}...</div>
-                    <div class="game-meta"><i class="fas fa-tag"></i> ${f.genre} | 📄 ${f.source}</div>
+                    <div class="game-meta"><i class="fas fa-tag"></i> ${f.genre}</div>
                     <div class="game-meta">${f.title.substring(0, 45)}</div>
                 </div>
             </div>
         `).join('');
-        
-        if (generatedFiles.length > 30) {
-            previewGrid.innerHTML += `<div style="text-align:center; padding:0.5rem; grid-column:1/-1;">... dan ${generatedFiles.length-30} file lainnya</div>`;
+        if (generatedFiles.length > 30) previewGrid.innerHTML += `<div style="text-align:center; padding:0.5rem;">... dan ${generatedFiles.length-30} file lainnya</div>`;
+    }
+    
+    function escapeHtml(text) { if (!text) return ''; const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
+    
+    function clearResults() { generatedFiles = []; zipResults = []; updatePreview(); exportPanel.style.display = 'none'; downloadAllZipBtn.disabled = true; log('🗑️ Hasil dibersihkan', 'info'); }
+    
+    // Genre buttons
+    document.querySelectorAll('.genre-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.genre-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            genreSelect.value = btn.getAttribute('data-genre');
+            generateMarkdownFiles();
+        });
+    });
+    
+    // Preview template
+    titleTemplatesArea.addEventListener('input', () => {
+        const templates = getTitleTemplates();
+        if (templates.length) {
+            const example = templates[0].replace(/{TITLE}/g, 'Shell Shockers').replace(/{YEAR}/g, '2024');
+            document.getElementById('templateExample').innerHTML = `<i class="fas fa-eye"></i> Contoh: "${example.substring(0, 70)}..."`;
         }
-    }
-    
-    function escapeHtml(text) {
-        if (!text) return '';
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-    
-    function clearResults() {
-        generatedFiles = [];
-        zipResults = [];
-        updatePreview();
-        exportPanel.style.display = 'none';
-        downloadAllZipBtn.disabled = true;
-        log('🗑️ Hasil dibersihkan', 'info');
-    }
+    });
     
     generateBtn.addEventListener('click', generateMarkdownFiles);
     downloadAllZipBtn.addEventListener('click', () => { if (zipResults.length) downloadAllZips(zipResults); });
     clearBtn.addEventListener('click', clearResults);
     
     log('✅ UNBLOCKED GAMES MARKDOWN GENERATOR siap digunakan!');
-    log('📚 Data dari FreeToGame API + UBG Games List');
-    log('🎮 Generate markdown untuk unblocked games dengan konten anti-banned');
+    log('📚 Data dari FreeToGame API + Demo Games');
+    log('🎨 SEO Title bisa di-custom dengan template');
+    log('🔗 Landing Page langsung ke URL yang ditentukan (tanpa slug)');
 })();
 </script>
 </body>
